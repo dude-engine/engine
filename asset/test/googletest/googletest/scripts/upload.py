@@ -1137,7 +1137,7 @@ class MercurialVCS(VersionControlSystem):
     return base_content, new_content, is_binary, status
 
 
-# NOTE: The SplitPatch function is duplicated in engine.py, keep them in sync.
+# NOTE: The SplitPatch function is duplicated in test_engine.py, keep them in sync.
 def SplitPatch(data):
   """Splits a patch into separate pieces for each file.
 

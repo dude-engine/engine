@@ -12,7 +12,7 @@ namespace dude {
 
         writer.StartObject();
         writer.Key("type");
-        writer.String("engine");
+        writer.String("test_engine");
         writer.EndObject();
         return std::string(buffer.GetString());
     }

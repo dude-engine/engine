@@ -16,5 +16,5 @@ function(dude_test TEST_FOLDER TEST_NAME)
 endfunction()
 
 # List tests
-dude_test(${PROJECT_SOURCE_DIR}/engine test_engine)
-dude_test(${PROJECT_SOURCE_DIR}/serialization test_serialization)
+dude_test(${PROJECT_SOURCE_DIR}/test_engine test_engine)
+dude_test(${PROJECT_SOURCE_DIR}/test_serialization test_serialization)

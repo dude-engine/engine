@@ -10,4 +10,4 @@ function(dude_demo DEMO_FOLDER DEMO_NAME)
 endfunction()
 
 # List demos
-dude_demo(${PROJECT_SOURCE_DIR}/tower_defense demo_tower_defense)
+dude_demo(${PROJECT_SOURCE_DIR}/demo_td demo_td)
