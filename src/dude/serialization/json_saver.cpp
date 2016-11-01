@@ -7,8 +7,8 @@
 namespace dude {
 
     auto json_saver::save(const engine &value) const -> std::string {
-        buffer buffer;
-        writer writer(buffer);
+        buffer_t buffer;
+        writer_t writer(buffer);
 
         writer.StartObject();
         writer.Key("type");
@@ -17,21 +17,21 @@ namespace dude {
         return std::string(buffer.GetString());
     }
 
-    auto json_saver::save(const scene &value, writer &writer, buffer &buffer) const -> void {
-        writer.StartObject();
-        writer.Key("type");
-        writer.String("scene");
-        writer.EndObject();
+    auto json_saver::save(scene const &value) const -> std::string {
+        return std::string();
     }
 
-    auto json_saver::save(const dude::entity &value, writer &writer, buffer &buffer) const -> void {
+    auto json_saver::save(const entity &value, writer_t &writer, buffer_t &buffer) const -> void {
         writer.StartObject();
         writer.Key("type");
         writer.String("entity");
+        for (auto const &behavior : value.behaviors()) {
+            save(*behavior.get(), writer, buffer);
+        }
         writer.EndObject();
     }
 
-    auto json_saver::save(const dude::behavior &value, writer &writer, buffer &buffer) const -> void {
+    auto json_saver::save(const behavior &value, writer_t &writer, buffer_t &buffer) const -> void {
         writer.StartObject();
         writer.Key("type");
         writer.String("behavior");

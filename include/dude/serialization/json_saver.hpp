@@ -18,8 +18,8 @@ namespace dude {
 
     class json_saver {
     public:
-        using buffer = rapidjson::StringBuffer;
-        using writer = rapidjson::Writer<buffer>;
+        using buffer_t = rapidjson::StringBuffer;
+        using writer_t = rapidjson::Writer<buffer_t>;
 
     public:
         json_saver() = default;
@@ -27,11 +27,11 @@ namespace dude {
 
     public:
         auto save(engine const &value) const -> std::string;
+        auto save(scene const &value) const -> std::string;
 
     public:
-        auto save(scene const &value, writer &writer, buffer &buffer) const -> void;
-        auto save(entity const &value, writer &writer, buffer &buffer) const -> void;
-        auto save(behavior const &value, writer &writer, buffer &buffer) const -> void;
+        auto save(entity const &value, writer_t &writer, buffer_t &buffer) const -> void;
+        auto save(behavior const &value, writer_t &writer, buffer_t &buffer) const -> void;
     };
 
 }
