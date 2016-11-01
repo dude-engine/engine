@@ -1,6 +1,6 @@
 #include <dude/core/engine.hpp>
 
 int main() {
-    dude::engine engine;
+    auto engine = dude::engine();
     return 0;
 }

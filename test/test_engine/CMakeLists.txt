@@ -1,10 +1,10 @@
-project(dude_test_serialization)
+project(dude_test_engine)
 
-set(TEST_TARGET test_serialization)
+set(TEST_TARGET test_engine)
 
 file(GLOB_RECURSE TEST_SOURCES ${PROJECT_SOURCE_DIR}/*.cpp)
 file(GLOB_RECURSE TEST_HEADERS ${PROJECT_SOURCE_DIR}/*.hpp)
 
 add_executable(${TEST_TARGET} ${TEST_SOURCES} ${TEST_HEADERS})
-target_link_libraries(${TEST_TARGET} ${DUDE_ENGINE_TARGET} gtest_main)
+target_link_libraries(${TEST_TARGET} ${ENGINE_TARGET} gtest_main)
 target_include_directories(${TEST_TARGET} PUBLIC SYSTEM ${PROJECT_SOURCE_DIR}/googletest/googletest/include)
