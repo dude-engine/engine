@@ -11,7 +11,7 @@ namespace dude {
     class DUDE_API behavior {
     public:
         behavior() = default;
-        ~behavior() = default;
+        virtual ~behavior() = default;
 
     public:
         virtual auto on_dependencies() -> void;

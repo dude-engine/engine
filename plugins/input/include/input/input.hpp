@@ -8,8 +8,10 @@
 
 namespace dude {
 
-    class input : public behavior {
-
+    class input final : public behavior {
+    public:
+        input() = default;
+        virtual ~input() = default;
     };
 
 }
