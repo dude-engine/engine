@@ -11,7 +11,7 @@ namespace dude { class behavior; }
 
 namespace dude {
 
-    class entity {
+    class entity final {
     public:
         using behaviors_t = std::vector<std::unique_ptr<behavior>>;
 

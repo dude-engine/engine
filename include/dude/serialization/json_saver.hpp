@@ -16,7 +16,7 @@
 
 namespace dude {
 
-    class json_saver {
+    class json_saver final {
     public:
         using buffer_t = rapidjson::StringBuffer;
         using writer_t = rapidjson::Writer<buffer_t>;

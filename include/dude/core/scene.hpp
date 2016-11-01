@@ -11,7 +11,7 @@ namespace dude { class entity; }
 
 namespace dude {
 
-    class scene {
+    class scene final {
     public:
         using entities_t = std::vector<std::unique_ptr<entity>>;
 
