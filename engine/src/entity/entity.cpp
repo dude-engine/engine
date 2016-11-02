@@ -2,9 +2,21 @@
 // Created by Jonathan Picques on 31/10/2016.
 //
 
+#include <cassert>
+
 #include <dude/entity/entity.hpp>
 
 namespace dude {
+
+    auto entity::name(name_t const &name) -> void {
+        assert(_name.empty());
+        _name = name;
+    }
+
+    auto entity::name() const -> name_t const & {
+        assert(!_name.empty());
+        return _name;
+    }
 
     auto entity::behaviors() const -> const entity::behaviors_t & {
         return _behaviors;
@@ -27,7 +39,7 @@ namespace dude {
     }
 
     auto entity::enabled() const -> bool {
-        return false;
+        return _enabled;
     }
 
 }

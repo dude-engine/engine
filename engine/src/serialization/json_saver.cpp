@@ -12,13 +12,23 @@ namespace dude {
 
         writer.StartObject();
         writer.Key("type");
-        writer.String("test_engine");
+        writer.String("engine");
         writer.EndObject();
         return std::string(buffer.GetString());
     }
 
     auto json_saver::save(scene const &value) const -> std::string {
-        return std::string();
+        buffer_t buffer;
+        writer_t writer(buffer);
+
+        writer.StartObject();
+        writer.Key("type");
+        writer.String("scene");
+        for (auto const &entity : value.entities()) {
+            save(*entity.get(), writer, buffer);
+        }
+        writer.EndObject();
+        return std::string(buffer.GetString());
     }
 
     auto json_saver::save(const entity &value, writer_t &writer, buffer_t &buffer) const -> void {

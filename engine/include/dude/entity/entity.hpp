@@ -6,6 +6,7 @@
 
 #include <memory>
 #include <vector>
+#include <string>
 
 namespace dude { class behavior; }
 
@@ -13,11 +14,17 @@ namespace dude {
 
     class entity final {
     public:
+        using name_t = std::string;
+        using enabled_t = bool;
         using behaviors_t = std::vector<std::unique_ptr<behavior>>;
 
     public:
         entity() = default;
         ~entity() = default;
+
+    public:
+        auto name(name_t const &) -> void;
+        auto name() const -> name_t const &;
 
     public:
         auto behaviors() const -> behaviors_t const &;
@@ -30,7 +37,8 @@ namespace dude {
         auto enabled() const -> bool;
 
     private:
-        bool _enabled;
+        name_t _name;
+        enabled_t _enabled;
         behaviors_t _behaviors;
     };
 

@@ -4,11 +4,17 @@
 
 #pragma once
 
+#include <string>
+
 #include <dude/system.hpp>
 
 namespace dude {
 
     class DUDE_API behavior {
+    public:
+        using name_t = std::string;
+        using enabled_t = bool;
+
     public:
         behavior() = default;
         virtual ~behavior() = default;
@@ -29,11 +35,16 @@ namespace dude {
         auto configure_properties() -> void;
 
     public:
-        auto enable(bool enable) -> void;
-        auto enabled() const -> bool;
+        auto name(name_t const &) -> void;
+        auto name() const -> name_t const &;
+
+    public:
+        auto enable(enabled_t const &enable) -> void;
+        auto enabled() const -> enabled_t const &;
 
     private:
-        bool _enabled;
+        name_t _name;
+        enabled_t _enabled;
     };
 
 }

@@ -2,6 +2,8 @@
 // Created by Jonathan Picques on 01/11/2016.
 //
 
+#include <cassert>
+
 #include <dude/system.hpp>
 #include <dude/core/library.hpp>
 
@@ -19,6 +21,7 @@ namespace dude {
         #else
             _library = dlopen(library_path.c_str(), RTLD_LOCAL | RTLD_LAZY);
         #endif
+        assert(_library != nullptr);
     }
 
     library::~library() {
@@ -30,11 +33,14 @@ namespace dude {
     }
 
     auto library::_symbol(std::string const &symbol) const -> void * {
+        auto void_symbol = static_cast<void *>(nullptr);
         #ifdef DUDE_PLATFORM_WINDOWS
-            return reinterpret_cast<void *>(GetProcAddress(reinterpret_cast<HMODULE>(_library), symbol.c_str()));
+            void_symbol = reinterpret_cast<void *>(GetProcAddress(reinterpret_cast<HMODULE>(_library), symbol.c_str()));
         #else
-            return reinterpret_cast<void *>(dlsym(library, symbol.c_str()));
+            void_symbol = reinterpret_cast<void *>(dlsym(library, symbol.c_str()));
         #endif
+        assert(void_symbol != nullptr);
+        return void_symbol;
     }
 
 }
