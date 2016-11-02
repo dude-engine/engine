@@ -3,7 +3,7 @@ project(dude)
 
 # Dude engine target
 set(ENGINE_TARGET engine)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
 
 # Dude engine variables
 set(ENGINE_SOURCE_FOLDER "${PROJECT_SOURCE_DIR}/engine/src")

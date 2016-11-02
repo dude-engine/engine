@@ -15,5 +15,5 @@ TEST(Engine, Library) {
     auto behavior = std::unique_ptr<dude::behavior>(behavior_creator());
     behavior->name("test worked");
     EXPECT_EQ(behavior->name(), "test worked");
-    EXPECT_DEATH(library.symbol<int (*)()>("undefined_symbol"), "");
+    EXPECT_DEATH_IF_SUPPORTED(library.symbol<int (*)()>("undefined_symbol"), "");
 }
