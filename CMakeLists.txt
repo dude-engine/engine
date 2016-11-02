@@ -15,6 +15,8 @@ file(GLOB_RECURSE ENGINE_HEADERS ${ENGINE_HEADER_FOLDER}/*.hpp)
 
 # Dude engine library
 add_library(${ENGINE_TARGET} STATIC ${ENGINE_SOURCES} ${ENGINE_HEADERS})
+set_target_properties(${ENGINE_TARGET} PROPERTIES POSITION_INDEPENDENT_CODE ON)
+target_link_libraries(${ENGINE_TARGET} ${CMAKE_DL_LIBS})
 target_include_directories(${ENGINE_TARGET} PUBLIC ${ENGINE_HEADER_FOLDER})
 target_include_directories(${ENGINE_TARGET} PUBLIC ${PROJECT_SOURCE_DIR}/vendors)
 
