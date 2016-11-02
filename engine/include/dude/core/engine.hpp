@@ -4,11 +4,6 @@
 
 #pragma once
 
-#include <memory>
-#include <vector>
-
-#include <dude/core/scene.hpp>
-
 namespace dude {
 
     class engine final {

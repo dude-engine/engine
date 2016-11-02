@@ -4,8 +4,16 @@
 
 #include <gtest/gtest.h>
 
-#include <dude/core/engine.hpp>
+#include <memory>
 
-TEST(Engine, Basic) {
-    dude::engine engine;
+#include <dude/core/library.hpp>
+#include <dude/behavior/behavior.hpp>
+
+TEST(Engine, Library) {
+    auto library = dude::library("../../plugins/input/libplugin_input");
+    auto behavior_creator = library.symbol<dude::behavior *(*)()>("create");
+    auto behavior = std::unique_ptr<dude::behavior>(behavior_creator());
+    behavior->name("test worked");
+    EXPECT_EQ(behavior->name(), "test worked");
+    EXPECT_DEATH(library.symbol<int (*)()>("undefined_symbol"), "");
 }
