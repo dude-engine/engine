@@ -27,8 +27,9 @@ namespace dude {
 
     public:
         auto entities() const -> entities_t const &;
-        auto add_entity(std::string const &, std::unique_ptr<entity> &&) const -> void;
-        auto remove_entity(std::string const &) const -> void;
+        auto has_entity(std::string const &) const -> bool;
+        auto add_entity(std::string const &, std::unique_ptr<entity> &&) -> void;
+        auto remove_entity(std::string const &) -> void;
 
     private:
         name_t _name;

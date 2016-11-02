@@ -2,20 +2,32 @@
 // Created by Jonathan Picques on 31/10/2016.
 //
 
-#include <cassert>
-
 #include <dude/entity/entity.hpp>
 
 namespace dude {
 
     auto entity::name(name_t const &name) -> void {
-        assert(_name.empty());
-        _name = name;
+
     }
 
     auto entity::name() const -> name_t const & {
-        assert(!_name.empty());
         return _name;
+    }
+
+    auto entity::entities() const -> const entities_t & {
+        return _entities;
+    }
+
+    auto entity::has_entity(std::string const &) const -> bool {
+        return false;
+    }
+
+    auto entity::add_entity(std::string const &, std::unique_ptr<entity> &&) -> void {
+
+    }
+
+    auto entity::remove_entity(std::string const &) -> void {
+
     }
 
     auto entity::behaviors() const -> const entity::behaviors_t & {

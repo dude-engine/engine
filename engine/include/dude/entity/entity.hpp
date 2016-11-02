@@ -16,6 +16,7 @@ namespace dude {
     public:
         using name_t = std::string;
         using enabled_t = bool;
+        using entities_t = std::vector<std::unique_ptr<entity>>;
         using behaviors_t = std::vector<std::unique_ptr<behavior>>;
 
     public:
@@ -25,6 +26,12 @@ namespace dude {
     public:
         auto name(name_t const &) -> void;
         auto name() const -> name_t const &;
+
+    public:
+        auto entities() const -> entities_t const &;
+        auto has_entity(std::string const &) const -> bool;
+        auto add_entity(std::string const &, std::unique_ptr<entity> &&) -> void;
+        auto remove_entity(std::string const &) -> void;
 
     public:
         auto behaviors() const -> behaviors_t const &;
@@ -39,6 +46,7 @@ namespace dude {
     private:
         name_t _name;
         enabled_t _enabled;
+        entities_t _entities;
         behaviors_t _behaviors;
     };
 

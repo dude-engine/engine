@@ -2,8 +2,6 @@
 // Created by Jonathan Picques on 31/10/2016.
 //
 
-#include <cassert>
-
 #include <dude/behavior/behavior.hpp>
 
 namespace dude {
@@ -45,12 +43,10 @@ namespace dude {
     }
 
     auto behavior::name(name_t const &name) -> void {
-        assert(_name.empty());
-        _name = name;
+
     }
 
     auto behavior::name() const -> name_t const & {
-        assert(!_name.empty());
         return _name;
     }
 
