@@ -7,25 +7,33 @@
 #include <dude/system.hpp>
 #include <dude/core/library.hpp>
 
-#ifdef DUDE_PLATFORM_WINDOWS
+#if defined(DUDE_PLATFORM_WINDOWS)
     #include <windows.h>
+    #define LIBRARY_EXT ".dll"
 #else
     #include <dlfcn.h>
+    #if defined(DUDE_PLATFORM_LINUX)
+        #define LIBRARY_EXT ".so"
+    #elif defined(DUDE_PLATFORM_OSX)
+        #define LIBRARY_EXT ".dylib"
+    #elif defined(DUDE_PLATFORM_HTML5)
+        #define LIBRARY_EXT ".js"
+    #endif
 #endif
 
 namespace dude {
 
     library::library(std::string const &library_path) {
-        #ifdef DUDE_PLATFORM_WINDOWS
-            _library = LoadLibrary(library_path.c_str());
+        #if defined(DUDE_PLATFORM_WINDOWS)
+            _library = LoadLibrary((library_path + LIBRARY_EXT).c_str());
         #else
-            _library = dlopen((library_path + ".so").c_str(), RTLD_LOCAL | RTLD_LAZY);
+            _library = dlopen((library_path + LIBRARY_EXT).c_str(), RTLD_NOW);
         #endif
         assert(_library != nullptr);
     }
 
     library::~library() {
-        #ifdef DUDE_PLATFORM_WINDOWS
+        #if defined(DUDE_PLATFORM_WINDOWS)
             FreeLibrary(reinterpret_cast<HMODULE>(_library));
         #else
             dlclose(_library);
@@ -34,7 +42,7 @@ namespace dude {
 
     auto library::_symbol(std::string const &symbol) const -> void * {
         auto void_symbol = static_cast<void *>(nullptr);
-        #ifdef DUDE_PLATFORM_WINDOWS
+        #if defined(DUDE_PLATFORM_WINDOWS)
             void_symbol = reinterpret_cast<void *>(GetProcAddress(reinterpret_cast<HMODULE>(_library), symbol.c_str()));
         #else
             void_symbol = reinterpret_cast<void *>(dlsym(_library, symbol.c_str()));

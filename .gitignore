@@ -35,3 +35,4 @@
 
 # CMake build folder
 /build
+/build-js
