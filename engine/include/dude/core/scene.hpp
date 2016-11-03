@@ -8,14 +8,15 @@
 #include <vector>
 #include <string>
 
+#include <dude/entity/entity.hpp>
+
 namespace dude { class engine; }
-namespace dude { class entity; }
 
 namespace dude {
 
     class scene final {
     public:
-        using engine_t = engine *;
+        using engine_t = dude::engine *;
         using name_t = std::string;
         using entities_t = std::vector<std::unique_ptr<entity>>;
 

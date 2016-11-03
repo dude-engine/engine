@@ -8,7 +8,7 @@
 #include <vector>
 #include <string>
 
-namespace dude { class behavior; }
+#include <dude/plugin/behavior.hpp>
 
 namespace dude {
 

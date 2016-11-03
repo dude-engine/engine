@@ -14,7 +14,8 @@ namespace dude {
 
     class DUDE_API plugin {
     public:
-        using engine_t = engine *;
+        using engine_t = dude::engine *;
+        using enabled_t = bool;
         using name_t = std::string;
 
     public:
@@ -29,8 +30,13 @@ namespace dude {
         auto name(name_t const &) -> void;
         auto name() const -> name_t const &;
 
+    public:
+        auto enable(enabled_t const &enable) -> void;
+        auto enabled() const -> enabled_t const &;
+
     private:
         engine_t _engine;
+        enabled_t _enabled;
         name_t _name;
     };
 

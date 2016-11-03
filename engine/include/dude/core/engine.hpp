@@ -15,7 +15,7 @@ namespace dude {
 
     class engine final {
     public:
-        using scene_t = scene *;
+        using scene_t = dude::scene *;
         using managers_t = std::vector<std::unique_ptr<manager>>;
 
     public:
@@ -39,6 +39,7 @@ namespace dude {
         auto remove_manager(std::string const &) -> void;
 
     private:
+        scene_t _scene;
         managers_t _managers;
     };
 

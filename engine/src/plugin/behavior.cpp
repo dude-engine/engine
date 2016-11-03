@@ -42,11 +42,11 @@ namespace dude {
 
     }
 
-    auto behavior::enable(enabled_t const &enable) -> void {
-
+    auto behavior::entity() const -> behavior::entity_t {
+        return _entity;
     }
 
-    auto behavior::enabled() const -> enabled_t const & {
-        return _enabled;
+    auto behavior::entity(behavior::entity_t entity) -> void {
+
     }
 }

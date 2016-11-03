@@ -32,13 +32,6 @@ namespace dude {
     public:
         auto configure_dependencies() -> void;
         auto configure_properties() -> void;
-
-    public:
-        auto enable(enabled_t const &enable) -> void;
-        auto enabled() const -> enabled_t const &;
-
-    private:
-        enabled_t _enabled;
     };
 
 }

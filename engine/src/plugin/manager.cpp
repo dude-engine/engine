@@ -45,12 +45,4 @@ namespace dude {
     auto manager::configure_properties() -> void {
 
     }
-
-    auto manager::enable(enabled_t const &enable) -> void {
-
-    }
-
-    auto manager::enabled() const -> enabled_t const & {
-        return _enabled;
-    }
 }

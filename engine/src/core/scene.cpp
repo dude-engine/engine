@@ -7,7 +7,7 @@
 namespace dude {
 
     auto scene::engine() const -> engine_t {
-        return nullptr;
+        return _engine;
     }
 
     auto scene::engine(engine_t engine) -> void {

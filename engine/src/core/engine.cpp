@@ -23,7 +23,7 @@ namespace dude {
     }
 
     auto engine::scene() const -> scene_t {
-        return nullptr;
+        return _scene;
     }
 
     auto engine::load_scene(std::string const &) -> scene_t {

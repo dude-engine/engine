@@ -7,7 +7,7 @@
 namespace dude {
 
     auto plugin::engine() const -> engine_t {
-        return nullptr;
+        return _engine;
     }
 
     auto plugin::engine(engine_t engine) -> void {
@@ -20,5 +20,13 @@ namespace dude {
 
     auto plugin::name() const -> name_t const & {
         return _name;
+    }
+
+    auto plugin::enable(enabled_t const &enable) -> void {
+
+    }
+
+    auto plugin::enabled() const -> enabled_t const & {
+        return _enabled;
     }
 }

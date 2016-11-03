@@ -7,11 +7,14 @@
 #include <dude/system.hpp>
 #include <dude/plugin/plugin.hpp>
 
+namespace dude { class entity; }
+
 namespace dude {
 
     class DUDE_API behavior : public plugin {
     public:
         using enabled_t = bool;
+        using entity_t = dude::entity *;
 
     public:
         behavior() = default;
@@ -33,11 +36,12 @@ namespace dude {
         auto configure_properties() -> void;
 
     public:
-        auto enable(enabled_t const &enable) -> void;
-        auto enabled() const -> enabled_t const &;
+        auto entity() const -> entity_t;
+        auto entity(entity_t entity) -> void;
 
     private:
         enabled_t _enabled;
+        entity_t _entity;
     };
 
 }
