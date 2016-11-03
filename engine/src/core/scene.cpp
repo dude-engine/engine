@@ -6,6 +6,14 @@
 
 namespace dude {
 
+    auto scene::engine() const -> engine_t {
+        return nullptr;
+    }
+
+    auto scene::engine(engine_t engine) -> void {
+
+    }
+
     auto scene::name(name_t const &name) -> void {
     }
 

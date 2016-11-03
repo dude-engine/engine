@@ -8,18 +8,24 @@
 #include <vector>
 #include <string>
 
+namespace dude { class engine; }
 namespace dude { class entity; }
 
 namespace dude {
 
     class scene final {
     public:
+        using engine_t = engine *;
         using name_t = std::string;
         using entities_t = std::vector<std::unique_ptr<entity>>;
 
     public:
         scene() = default;
         ~scene() = default;
+
+    public:
+        auto engine() const -> engine_t;
+        auto engine(engine_t engine) -> void;
 
     public:
         auto name(name_t const &) -> void;
@@ -32,6 +38,7 @@ namespace dude {
         auto remove_entity(std::string const &) -> void;
 
     private:
+        engine_t _engine;
         name_t _name;
         entities_t _entities;
     };
