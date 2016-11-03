@@ -31,7 +31,7 @@ namespace dude {
     }
 
     auto engine::managers() const -> const managers_t & {
-        return <#initializer#>;
+        return _managers;
     }
 
     auto engine::has_manager(std::string const &) const -> bool {

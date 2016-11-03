@@ -11,6 +11,7 @@
 
 #include <dude/core/engine.hpp>
 #include <dude/core/scene.hpp>
+#include <dude/plugin/manager.hpp>
 #include <dude/entity/entity.hpp>
 #include <dude/plugin/behavior.hpp>
 
@@ -27,9 +28,10 @@ namespace dude {
 
     public:
         auto save(engine const &value) const -> std::string;
-        auto save(scene const &value) const -> std::string;
 
     public:
+        auto save(scene const &value, writer_t &writer, buffer_t &buffer) const -> void;
+        auto save(manager const &value, writer_t &writer, buffer_t &buffer) const -> void;
         auto save(entity const &value, writer_t &writer, buffer_t &buffer) const -> void;
         auto save(behavior const &value, writer_t &writer, buffer_t &buffer) const -> void;
     };
