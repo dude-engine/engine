@@ -1,7 +1,7 @@
-project(dude_plugins)
+project(dude_plugins_managers)
 
-# Build managers
-add_subdirectory(${PROJECT_SOURCE_DIR}/managers)
+# Build plugins
+add_subdirectory(${PROJECT_SOURCE_DIR}/input)
 
 # Export plugins for emscripten filesystem
 if (${CMAKE_SYSTEM_NAME} STREQUAL Emscripten)

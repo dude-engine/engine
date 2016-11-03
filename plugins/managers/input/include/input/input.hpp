@@ -4,7 +4,7 @@
 
 #pragma once
 
-#include <dude/behavior/behavior.hpp>
+#include <dude/plugin/behavior.hpp>
 
 namespace dude {
 

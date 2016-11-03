@@ -12,7 +12,7 @@
 #include <dude/core/engine.hpp>
 #include <dude/core/scene.hpp>
 #include <dude/entity/entity.hpp>
-#include <dude/behavior/behavior.hpp>
+#include <dude/plugin/behavior.hpp>
 
 namespace dude {
 

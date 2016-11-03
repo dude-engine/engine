@@ -7,10 +7,10 @@
 #include <memory>
 
 #include <dude/core/library.hpp>
-#include <dude/behavior/behavior.hpp>
+#include <dude/plugin/behavior.hpp>
 
 TEST(Engine, Library) {
-    auto library = dude::library("plugins/input/libplugin_input");
+    auto library = dude::library("plugins/managers/input/libmanager_input");
     auto behavior_creator = library.symbol<dude::behavior *(*)()>("create");
     auto behavior = std::unique_ptr<dude::behavior>(behavior_creator());
     EXPECT_TRUE(behavior->name().empty());

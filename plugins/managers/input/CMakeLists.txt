@@ -1,7 +1,7 @@
-project(dude_plugin_input)
+project(dude_plugin_manager_input)
 
 # Plugin target
-set(DUDE_PLUGIN_TARGET plugin_input)
+set(DUDE_PLUGIN_TARGET manager_input)
 
 # Plugin variables
 set(DUDE_PLUGIN_SOURCE_DIR "${PROJECT_SOURCE_DIR}/src")
