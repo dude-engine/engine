@@ -24,7 +24,7 @@ target_include_directories(${DUDE_ENGINE_TARGET} PUBLIC ${PROJECT_SOURCE_DIR}/ve
 add_subdirectory(${PROJECT_SOURCE_DIR}/plugins)
 
 # Dude tests
-add_subdirectory(${PROJECT_SOURCE_DIR}/test)
+add_subdirectory(${PROJECT_SOURCE_DIR}/tests)
 
 # Dude demos
-add_subdirectory(${PROJECT_SOURCE_DIR}/demo)
+add_subdirectory(${PROJECT_SOURCE_DIR}/demos)

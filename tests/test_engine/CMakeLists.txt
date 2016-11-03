@@ -12,7 +12,7 @@ add_executable(${DUDE_TEST_TARGET} ${DUDE_TEST_SOURCES} ${DUDE_TEST_HEADERS})
 target_link_libraries(${DUDE_TEST_TARGET} ${DUDE_ENGINE_TARGET} gtest_main)
 target_include_directories(${DUDE_TEST_TARGET} PUBLIC SYSTEM ${PROJECT_SOURCE_DIR}/googletest/googletest/include)
 
-# Emscripten test executable
+# Emscripten tests executable
 if (${CMAKE_SYSTEM_NAME} STREQUAL Emscripten)
     # Generate emscripten filesystem
     if (NOT "${DUDE_EMSCRIPTEN_FILESYSTEM}" STREQUAL "")

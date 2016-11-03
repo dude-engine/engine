@@ -11,7 +11,7 @@ file(GLOB_RECURSE DUDE_DEMO_HEADERS ${PROJECT_SOURCE_DIR}/*.hpp)
 add_executable(${DUDE_DEMO_TARGET} ${DUDE_DEMO_SOURCES} ${DUDE_DEMO_HEADERS})
 target_link_libraries(${DUDE_DEMO_TARGET} ${DUDE_ENGINE_TARGET})
 
-# Emscripten test executable
+# Emscripten tests executable
 if (${CMAKE_SYSTEM_NAME} STREQUAL Emscripten)
     # Generate emscripten filesystem
     if (NOT "${DUDE_EMSCRIPTEN_FILESYSTEM}" STREQUAL "")
