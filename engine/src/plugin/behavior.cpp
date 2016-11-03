@@ -26,7 +26,7 @@ namespace dude {
 
     }
 
-    auto behavior::on_destroy() -> void {
+    auto behavior::on_stop() -> void {
 
     }
 
@@ -40,14 +40,6 @@ namespace dude {
 
     auto behavior::configure_properties() -> void {
 
-    }
-
-    auto behavior::name(name_t const &name) -> void {
-
-    }
-
-    auto behavior::name() const -> name_t const & {
-        return _name;
     }
 
     auto behavior::enable(enabled_t const &enable) -> void {

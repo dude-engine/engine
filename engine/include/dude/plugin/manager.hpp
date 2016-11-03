@@ -9,15 +9,16 @@
 
 namespace dude {
 
-    class DUDE_API behavior : public plugin {
+    class DUDE_API manager : public plugin {
     public:
         using enabled_t = bool;
 
     public:
-        behavior() = default;
-        virtual ~behavior() = default;
+        manager() = default;
+        virtual ~manager() = default;
 
     public:
+        virtual auto on_manager_dependencies() -> void;
         virtual auto on_dependencies() -> void;
         virtual auto on_properties() -> void;
 

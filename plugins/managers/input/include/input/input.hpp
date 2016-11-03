@@ -4,14 +4,18 @@
 
 #pragma once
 
-#include <dude/plugin/behavior.hpp>
+#include <dude/plugin/manager.hpp>
 
 namespace dude {
 
-    class input final : public behavior {
+    class input final : public manager {
     public:
         input() = default;
         virtual ~input() = default;
+
+    public:
+        virtual auto on_create() -> void;
+        virtual auto on_destroy() -> void;
     };
 
 }
