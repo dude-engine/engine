@@ -45,4 +45,5 @@ namespace dude {
     auto engine::remove_manager(std::string const &) -> void {
 
     }
+
 }

@@ -29,8 +29,8 @@ namespace dude {
         auto engine(engine_t engine) -> void;
 
     public:
-        auto name(name_t const &) -> void;
         auto name() const -> name_t const &;
+        auto name(name_t const &) -> void;
 
     public:
         auto entities() const -> entities_t const &;

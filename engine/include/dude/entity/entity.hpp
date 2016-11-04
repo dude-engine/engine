@@ -24,8 +24,8 @@ namespace dude {
         ~entity() = default;
 
     public:
-        auto name(name_t const &) -> void;
         auto name() const -> name_t const &;
+        auto name(name_t const &) -> void;
 
     public:
         auto entities() const -> entities_t const &;
@@ -40,8 +40,8 @@ namespace dude {
         auto remove_behavior(std::string const &) -> void;
 
     public:
-        auto enable(bool enable) -> void;
         auto enabled() const -> bool;
+        auto enable(bool enable) -> void;
 
     private:
         name_t _name;

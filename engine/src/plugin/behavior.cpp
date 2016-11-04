@@ -6,12 +6,12 @@
 
 namespace dude {
 
-    auto behavior::on_dependencies() -> void {
-
+    auto behavior::on_manager_dependencies() -> dependencies_t {
+        return dependencies_t();
     }
 
-    auto behavior::on_properties() -> void {
-
+    auto behavior::on_dependencies() -> dependencies_t {
+        return dependencies_t();
     }
 
     auto behavior::on_enable() -> void {
@@ -34,14 +34,6 @@ namespace dude {
 
     }
 
-    auto behavior::configure_dependencies() -> void {
-
-    }
-
-    auto behavior::configure_properties() -> void {
-
-    }
-
     auto behavior::entity() const -> behavior::entity_t {
         return _entity;
     }
@@ -49,4 +41,21 @@ namespace dude {
     auto behavior::entity(behavior::entity_t entity) -> void {
 
     }
+
+    auto behavior::manager_dependencies() const -> const dependencies_t & {
+        return _manager_dependencies;
+    }
+
+    auto behavior::dependencies() const -> const dependencies_t & {
+        return _dependencies;
+    }
+
+    auto behavior::configure_manager_dependencies() -> void {
+
+    }
+
+    auto behavior::configure_dependencies() -> void {
+
+    }
+
 }

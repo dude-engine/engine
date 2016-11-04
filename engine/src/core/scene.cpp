@@ -14,11 +14,11 @@ namespace dude {
 
     }
 
-    auto scene::name(name_t const &name) -> void {
-    }
-
     auto scene::name() const -> name_t const & {
         return _name;
+    }
+
+    auto scene::name(name_t const &name) -> void {
     }
 
     auto scene::entities() const -> const entities_t & {

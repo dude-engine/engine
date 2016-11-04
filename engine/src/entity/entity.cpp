@@ -6,12 +6,12 @@
 
 namespace dude {
 
-    auto entity::name(name_t const &name) -> void {
-
-    }
-
     auto entity::name() const -> name_t const & {
         return _name;
+    }
+
+    auto entity::name(name_t const &name) -> void {
+
     }
 
     auto entity::entities() const -> const entities_t & {
@@ -46,12 +46,12 @@ namespace dude {
 
     }
 
-    auto entity::enable(bool enable) -> void {
-
-    }
-
     auto entity::enabled() const -> bool {
         return _enabled;
+    }
+
+    auto entity::enable(bool enable) -> void {
+
     }
 
 }

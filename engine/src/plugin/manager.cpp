@@ -6,16 +6,12 @@
 
 namespace dude {
 
-    auto manager::on_manager_dependencies() -> void {
-
+    auto manager::on_manager_dependencies() -> dependencies_t {
+        return dependencies_t();
     }
 
-    auto manager::on_dependencies() -> void {
-
-    }
-
-    auto manager::on_properties() -> void {
-
+    auto manager::on_dependencies() -> dependencies_t {
+        return dependencies_t();
     }
 
     auto manager::on_enable() -> void {
@@ -38,11 +34,20 @@ namespace dude {
 
     }
 
+    auto manager::manager_dependencies() const -> const dependencies_t & {
+        return _manager_dependencies;
+    }
+
+    auto manager::dependencies() const -> const dependencies_t & {
+        return _dependencies;
+    }
+
+    auto manager::configure_manager_dependencies() -> void {
+
+    }
+
     auto manager::configure_dependencies() -> void {
 
     }
 
-    auto manager::configure_properties() -> void {
-
-    }
 }

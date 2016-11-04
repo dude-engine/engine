@@ -6,6 +6,18 @@
 
 namespace dude {
 
+    auto plugin::on_create() -> void {
+
+    }
+
+    auto plugin::on_destroy() -> void {
+
+    }
+
+    auto plugin::on_properties() const -> properties_t {
+        return properties_t();
+    }
+
     auto plugin::engine() const -> engine_t {
         return _engine;
     }
@@ -14,19 +26,32 @@ namespace dude {
 
     }
 
-    auto plugin::name(name_t const &name) -> void {
-
-    }
-
     auto plugin::name() const -> name_t const & {
         return _name;
     }
 
-    auto plugin::enable(enabled_t const &enable) -> void {
+    auto plugin::name(name_t const &name) -> void {
+
+    }
+
+    auto plugin::properties() const -> const plugin::properties_t & {
+        return _properties;
+    }
+
+    auto plugin::properties(const plugin::properties_t &) -> void {
 
     }
 
     auto plugin::enabled() const -> enabled_t const & {
         return _enabled;
     }
+
+    auto plugin::enable(enabled_t const &enable) -> void {
+
+    }
+
+    auto plugin::configure_properties() -> void {
+
+    }
+
 }
