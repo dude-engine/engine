@@ -39,7 +39,7 @@ namespace dude {
     }
 
     auto behavior::entity(behavior::entity_t entity) -> void {
-
+        _entity = entity;
     }
 
     auto behavior::manager_dependencies() const -> const dependencies_t & {

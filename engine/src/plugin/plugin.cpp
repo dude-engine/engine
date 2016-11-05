@@ -23,7 +23,7 @@ namespace dude {
     }
 
     auto plugin::engine(engine_t engine) -> void {
-
+        _engine = engine;
     }
 
     auto plugin::name() const -> name_t const & {
@@ -31,7 +31,7 @@ namespace dude {
     }
 
     auto plugin::name(name_t const &name) -> void {
-
+        _name = name;
     }
 
     auto plugin::properties() const -> const plugin::properties_t & {

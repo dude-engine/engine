@@ -8,3 +8,4 @@ add_subdirectory(googletest)
 # Build tests
 add_subdirectory(${PROJECT_SOURCE_DIR}/test_engine)
 add_subdirectory(${PROJECT_SOURCE_DIR}/test_serialization)
+add_subdirectory(${PROJECT_SOURCE_DIR}/test_plugin_factory)

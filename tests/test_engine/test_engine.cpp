@@ -6,15 +6,8 @@
 
 #include <memory>
 
-#include <dude/core/library.hpp>
-#include <dude/plugin/behavior.hpp>
+#include <dude/core/engine.hpp>
 
 TEST(Engine, Library) {
-    auto library = dude::library("plugins/managers/input/libmanager_input");
-    auto behavior_creator = library.symbol<dude::behavior *(*)()>("create");
-    auto behavior = std::unique_ptr<dude::behavior>(behavior_creator());
-    behavior->on_create();
-    EXPECT_TRUE(behavior->name().empty());
-    EXPECT_DEATH_IF_SUPPORTED(library.symbol<int (*)()>("undefined_symbol"), "");
-    behavior->on_destroy();
+    dude::engine engine;
 }
