@@ -32,6 +32,11 @@ namespace dude {
         plugin_factory() = default;
         ~plugin_factory() = default;
 
+    private:
+        plugin_factory(plugin_factory const &) = delete;
+        plugin_factory(plugin_factory &&) = delete;
+        void operator=(plugin_factory const &) = delete;
+
     public:
         template<typename T> auto register_manager(std::string const &manager_name) -> void;
         template<typename T> auto register_behavior(std::string const &behavior_name) -> void;

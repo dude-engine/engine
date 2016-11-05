@@ -26,6 +26,11 @@ namespace dude {
         json_saver() = default;
         ~json_saver() = default;
 
+    private:
+        json_saver(json_saver const &) = delete;
+        json_saver(json_saver &&) = delete;
+        void operator=(json_saver const &) = delete;
+
     public:
         auto save(engine const &value) const -> std::string;
 

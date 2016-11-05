@@ -23,6 +23,11 @@ namespace dude {
         entity() = default;
         ~entity() = default;
 
+    private:
+        entity(entity const &) = delete;
+        entity(entity &&) = delete;
+        void operator=(entity const &) = delete;
+
     public:
         auto name() const -> name_t const &;
         auto name(name_t const &) -> void;

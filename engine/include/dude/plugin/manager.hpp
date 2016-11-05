@@ -21,6 +21,11 @@ namespace dude {
         manager() = default;
         virtual ~manager() = default;
 
+    private:
+        manager(manager const &) = delete;
+        manager(manager &&) = delete;
+        void operator=(manager const &) = delete;
+
     public:
         virtual auto on_manager_dependencies() -> dependencies_t;
         virtual auto on_dependencies() -> dependencies_t;

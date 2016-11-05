@@ -22,6 +22,11 @@ namespace dude {
         engine() = default;
         ~engine() = default;
 
+    private:
+        engine(engine const &) = delete;
+        engine(engine &&) = delete;
+        void operator=(engine const &) = delete;
+
     public:
         auto start() -> void;
         auto pause() -> void;

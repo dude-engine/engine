@@ -22,6 +22,15 @@ namespace dude {
         using properties_t = std::unordered_map<std::string, property>;
 
     public:
+        plugin() = default;
+        virtual ~plugin() = default;
+
+    private:
+        plugin(plugin const &) = delete;
+        plugin(plugin &&) = delete;
+        void operator=(plugin const &) = delete;
+
+    public:
         virtual auto on_create() -> void;
         virtual auto on_destroy() -> void;
         virtual auto on_properties() const -> properties_t;

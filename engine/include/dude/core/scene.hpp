@@ -24,6 +24,11 @@ namespace dude {
         scene() = default;
         ~scene() = default;
 
+    private:
+        scene(scene const &) = delete;
+        scene(scene &&) = delete;
+        void operator=(scene const &) = delete;
+
     public:
         auto engine() const -> engine_t;
         auto engine(engine_t engine) -> void;

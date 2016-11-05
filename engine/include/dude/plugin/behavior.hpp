@@ -24,6 +24,11 @@ namespace dude {
         behavior() = default;
         virtual ~behavior() = default;
 
+    private:
+        behavior(behavior const &) = delete;
+        behavior(behavior &&) = delete;
+        void operator=(behavior const &) = delete;
+
     public:
         virtual auto on_manager_dependencies() -> dependencies_t;
         virtual auto on_dependencies() -> dependencies_t;
