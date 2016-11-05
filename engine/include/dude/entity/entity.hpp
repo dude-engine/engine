@@ -29,15 +29,15 @@ namespace dude {
 
     public:
         auto entities() const -> entities_t const &;
-        auto has_entity(std::string const &) const -> bool;
-        auto add_entity(std::string const &, std::unique_ptr<entity> &&) -> void;
-        auto remove_entity(std::string const &) -> void;
+        auto has_entity(std::string const &entity_name) const -> bool;
+        auto add_entity(std::string const &entity_name, std::unique_ptr<entity> &&add_entity) -> void;
+        auto remove_entity(std::string const &entity_name) -> void;
 
     public:
         auto behaviors() const -> behaviors_t const &;
-        auto has_behavior(std::string const &) const -> bool;
-        auto add_behavior(std::string const &, std::unique_ptr<behavior> &&) -> void;
-        auto remove_behavior(std::string const &) -> void;
+        auto has_behavior(std::string const &behavior_name) const -> bool;
+        auto add_behavior(std::string const &, std::unique_ptr<behavior> &&add_behavior) -> void;
+        auto remove_behavior(std::string const &behavior_name) -> void;
 
     public:
         auto enabled() const -> bool;

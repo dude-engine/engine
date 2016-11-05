@@ -33,20 +33,20 @@ namespace dude {
         ~plugin_factory() = default;
 
     public:
-        template<typename T> auto register_manager(std::string const &) -> void;
-        template<typename T> auto register_behavior(std::string const &) -> void;
+        template<typename T> auto register_manager(std::string const &manager_name) -> void;
+        template<typename T> auto register_behavior(std::string const &behavior_name) -> void;
 
     public:
-        auto register_manager(std::string const &, std::string const &) -> void;
-        auto register_behavior(std::string const &, std::string const &) -> void;
+        auto register_manager(std::string const &manager_name, std::string const &manager_path) -> void;
+        auto register_behavior(std::string const &behavior_name, std::string const &behavior_path) -> void;
 
     public:
-        auto make_manager(std::string const &) -> std::unique_ptr<manager>;
-        auto make_behavior(std::string const &) -> std::unique_ptr<behavior>;
+        auto make_manager(std::string const &manager_name) -> std::unique_ptr<manager>;
+        auto make_behavior(std::string const &behavior_name) -> std::unique_ptr<behavior>;
 
     private:
-        auto register_manager(std::string const &, manager_creator_pointer_t) -> void;
-        auto register_behavior(std::string const &, behavior_creator_pointer_t) -> void;
+        auto register_manager(std::string const &manager_name, manager_creator_pointer_t manager_creator) -> void;
+        auto register_behavior(std::string const &behavior_name, behavior_creator_pointer_t behavior_creator) -> void;
 
     private:
         manager_creator_libraries_t _manager_creator_libraries;

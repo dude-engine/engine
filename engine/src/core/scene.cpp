@@ -19,21 +19,22 @@ namespace dude {
     }
 
     auto scene::name(name_t const &name) -> void {
+        _name = name;
     }
 
     auto scene::entities() const -> const entities_t & {
         return _entities;
     }
 
-    auto scene::has_entity(std::string const &) const -> bool {
+    auto scene::has_entity(std::string const &entity_name) const -> bool {
         return false;
     }
 
-    auto scene::add_entity(std::string const &, std::unique_ptr<entity> &&) -> void {
+    auto scene::add_entity(std::string const &entity_name, std::unique_ptr<entity> &&add_entity) -> void {
 
     }
 
-    auto scene::remove_entity(std::string const &) -> void {
+    auto scene::remove_entity(std::string const &entity_name) -> void {
 
     }
 

@@ -18,15 +18,15 @@ namespace dude {
         return _entities;
     }
 
-    auto entity::has_entity(std::string const &) const -> bool {
+    auto entity::has_entity(std::string const &entity_name) const -> bool {
         return false;
     }
 
-    auto entity::add_entity(std::string const &, std::unique_ptr<entity> &&) -> void {
+    auto entity::add_entity(std::string const &entity_name, std::unique_ptr<entity> &&add_entity) -> void {
 
     }
 
-    auto entity::remove_entity(std::string const &) -> void {
+    auto entity::remove_entity(std::string const &entity_name) -> void {
 
     }
 
@@ -34,15 +34,15 @@ namespace dude {
         return _behaviors;
     }
 
-    auto entity::has_behavior(std::string const &) const -> bool {
+    auto entity::has_behavior(std::string const &behavior_name) const -> bool {
         return false;
     }
 
-    auto entity::add_behavior(std::string const &, std::unique_ptr<behavior> &&) -> void {
+    auto entity::add_behavior(std::string const &behavior_name, std::unique_ptr<behavior> &&add_behavior) -> void {
 
     }
 
-    auto entity::remove_behavior(std::string const &) -> void {
+    auto entity::remove_behavior(std::string const &behavior_name) -> void {
 
     }
 

@@ -23,11 +23,11 @@
 
 namespace dude {
 
-    library::library(std::string const &library_path) {
+    library::library(std::string const &path) {
         #if defined(DUDE_PLATFORM_WINDOWS)
-            _library = LoadLibrary((library_path + LIBRARY_EXT).c_str());
+            _library = LoadLibrary((path + LIBRARY_EXT).c_str());
         #else
-            _library = dlopen((library_path + LIBRARY_EXT).c_str(), RTLD_NOW);
+            _library = dlopen((path + LIBRARY_EXT).c_str(), RTLD_NOW);
         #endif
         assert(_library != nullptr);
     }
@@ -40,12 +40,12 @@ namespace dude {
         #endif
     }
 
-    auto library::_symbol(std::string const &symbol) const -> void * {
+    auto library::_symbol(std::string const &symbol_name) const -> void * {
         auto void_symbol = static_cast<void *>(nullptr);
         #if defined(DUDE_PLATFORM_WINDOWS)
-            void_symbol = reinterpret_cast<void *>(GetProcAddress(reinterpret_cast<HMODULE>(_library), symbol.c_str()));
+            void_symbol = reinterpret_cast<void *>(GetProcAddress(reinterpret_cast<HMODULE>(_library), symbol_name.c_str()));
         #else
-            void_symbol = reinterpret_cast<void *>(dlsym(_library, symbol.c_str()));
+            void_symbol = reinterpret_cast<void *>(dlsym(_library, symbol_name.c_str()));
         #endif
         assert(void_symbol != nullptr);
         return void_symbol;

@@ -30,13 +30,13 @@ namespace dude {
 
     public:
         auto name() const -> name_t const &;
-        auto name(name_t const &) -> void;
+        auto name(name_t const &name) -> void;
 
     public:
         auto entities() const -> entities_t const &;
-        auto has_entity(std::string const &) const -> bool;
-        auto add_entity(std::string const &, std::unique_ptr<entity> &&) -> void;
-        auto remove_entity(std::string const &) -> void;
+        auto has_entity(std::string const &entity_name) const -> bool;
+        auto add_entity(std::string const &entity_name, std::unique_ptr<entity> &&add_entity) -> void;
+        auto remove_entity(std::string const &entity_name) -> void;
 
     private:
         engine_t _engine;

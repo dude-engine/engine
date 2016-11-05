@@ -30,13 +30,13 @@ namespace dude {
 
     public:
         auto scene() const -> scene_t;
-        auto load_scene(std::string const &) -> scene_t;
+        auto load_scene(std::string const &scene_name) -> scene_t;
 
     public:
         auto managers() const -> managers_t const &;
-        auto has_manager(std::string const &) const -> bool;
-        auto add_manager(std::string const &, std::unique_ptr<manager> &&) -> void;
-        auto remove_manager(std::string const &) -> void;
+        auto has_manager(std::string const &manager_name) const -> bool;
+        auto add_manager(std::string const &manager_name, std::unique_ptr<manager> &&add_manager) -> void;
+        auto remove_manager(std::string const &manager_name) -> void;
 
     private:
         scene_t _scene;

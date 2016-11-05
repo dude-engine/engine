@@ -13,14 +13,14 @@ namespace dude {
         using library_t = void *;
 
     public:
-        library(std::string const &);
+        library(std::string const &path);
         ~library();
 
     public:
-        template<typename T> auto symbol(std::string const &) const -> T;
+        template<typename T> auto symbol(std::string const &symbol_name) const -> T;
 
     private:
-        auto _symbol(std::string const &) const -> void *;
+        auto _symbol(std::string const &symbol_name) const -> void *;
 
     private:
         library_t _library;
@@ -31,8 +31,8 @@ namespace dude {
 namespace dude {
 
     template<typename T>
-    auto library::symbol(std::string const &symbol) const -> T {
-        return *reinterpret_cast<T>(_symbol(symbol));
+    auto library::symbol(std::string const &symbol_name) const -> T {
+        return *reinterpret_cast<T>(_symbol(symbol_name));
     }
 
 }

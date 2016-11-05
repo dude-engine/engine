@@ -34,15 +34,15 @@ namespace dude {
         return _managers;
     }
 
-    auto engine::has_manager(std::string const &) const -> bool {
+    auto engine::has_manager(std::string const &manager_name) const -> bool {
         return false;
     }
 
-    auto engine::add_manager(std::string const &, std::unique_ptr<manager> &&) -> void {
+    auto engine::add_manager(std::string const &manager_name, std::unique_ptr<manager> &&add_manager) -> void {
 
     }
 
-    auto engine::remove_manager(std::string const &) -> void {
+    auto engine::remove_manager(std::string const &manager_name) -> void {
 
     }
 
