@@ -19,12 +19,8 @@
 namespace dude {
 
     using property = ANY_IMPL;
-
-    template<typename T, typename ...Args>
-    auto property_cast(Args &&... args) -> decltype(ANY_CAST_IMPL<T>(std::forward<Args>(args)...));
-
-    template<typename T>
-    auto property_is(property const &p) -> bool;
+    template<typename T, typename ...Args> auto property_cast(Args &&... args) -> decltype(ANY_CAST_IMPL<T>(std::forward<Args>(args)...));
+    template<typename T> auto property_is(property const &p) -> bool;
 
 }
 

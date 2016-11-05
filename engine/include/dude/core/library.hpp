@@ -17,8 +17,7 @@ namespace dude {
         ~library();
 
     public:
-        template<typename T>
-        auto symbol(std::string const &) const -> T;
+        template<typename T> auto symbol(std::string const &) const -> T;
 
     private:
         auto _symbol(std::string const &) const -> void *;
