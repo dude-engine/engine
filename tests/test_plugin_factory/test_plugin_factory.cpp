@@ -24,7 +24,7 @@ TEST(Factory, RegisterPluginsFromType) {
     EXPECT_DEATH_IF_SUPPORTED(factory.make_behavior("manage"), "");
 }
 
-#if !defined(DUDE_EMBED_PLUGINS)
+#if defined(DUDE_EMBED_PLUGINS)
     TEST(Factory, InputPluginsRegisteredWhenEmbeddingPlugins) {
         dude::plugin_factory factory;
         auto manager = factory.make_manager("input");
