@@ -1,0 +1,3 @@
+project(dude_plugin_behavior_bullet)
+
+dude_add_plugin(behavior_bullet)

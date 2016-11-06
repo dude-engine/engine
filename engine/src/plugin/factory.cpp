@@ -8,6 +8,8 @@
 
 #if defined(DUDE_EMBED_PLUGINS)
     #include <managers/input/include/input/input.hpp>
+
+    #include <behaviors/bullet/include/bullet/bullet.hpp>
 #endif
 
 namespace dude {
@@ -15,6 +17,8 @@ namespace dude {
     plugin_factory::plugin_factory() {
         #if defined(DUDE_EMBED_PLUGINS)
             register_manager<dude::input>("input");
+
+            register_behavior<dude::bullet>("bullet");
         #endif
     }
 
