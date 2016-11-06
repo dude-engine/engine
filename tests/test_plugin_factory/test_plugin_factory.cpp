@@ -24,11 +24,19 @@ TEST(Factory, RegisterPluginsFromType) {
     EXPECT_DEATH_IF_SUPPORTED(factory.make_behavior("manage"), "");
 }
 
-TEST(Factory, RegisterPluginsFromSharedLibrary) {
-    dude::plugin_factory factory;
-    factory.register_manager("input", "plugins/managers/input/libmanager_input");
-    auto manager = factory.make_manager("input");
-    EXPECT_EQ(manager->name(), "input");
+#if !defined(DUDE_EMBED_PLUGINS)
+    TEST(Factory, InputPluginsRegisteredWhenEmbeddingPlugins) {
+        dude::plugin_factory factory;
+        auto manager = factory.make_manager("input");
+        EXPECT_EQ(manager->name(), "input");
+    }
+#else
+    TEST(Factory, RegisterPluginsFromSharedLibrary) {
+        dude::plugin_factory factory;
+        factory.register_manager("input", "plugins/managers/input/libmanager_input");
+        auto manager = factory.make_manager("input");
+        EXPECT_EQ(manager->name(), "input");
 
-    EXPECT_DEATH_IF_SUPPORTED(factory.register_behavior("input", "plugins/managers/input/libmanager_input"), "");
-}
+        EXPECT_DEATH_IF_SUPPORTED(factory.register_behavior("input", "plugins/managers/input/libmanager_input"), "");
+    }
+#endif

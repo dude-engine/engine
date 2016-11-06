@@ -6,7 +6,17 @@
 
 #include <dude/plugin/factory.hpp>
 
+#if defined(DUDE_EMBED_PLUGINS)
+    #include <managers/input/include/input/input.hpp>
+#endif
+
 namespace dude {
+
+    plugin_factory::plugin_factory() {
+        #if defined(DUDE_EMBED_PLUGINS)
+            register_manager<dude::input>("input");
+        #endif
+    }
 
     auto plugin_factory::register_manager(std::string const &manager_name, std::string const &manager_path) -> void {
         assert(_manager_creators.find(manager_name) == _manager_creators.end());

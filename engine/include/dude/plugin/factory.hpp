@@ -29,7 +29,7 @@ namespace dude {
         using behavior_creators_t = std::unordered_map<std::string, behavior_creator_func_t>;
 
     public:
-        plugin_factory() = default;
+        plugin_factory();
         ~plugin_factory() = default;
 
     private:
