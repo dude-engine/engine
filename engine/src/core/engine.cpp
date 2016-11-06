@@ -46,4 +46,12 @@ namespace dude {
 
     }
 
+    auto engine::plugin_factory() const -> const engine::plugin_factory_t & {
+        return _plugin_factory;
+    }
+
+    auto engine::plugin_factory() -> engine::plugin_factory_t & {
+        return _plugin_factory;
+    }
+
 }

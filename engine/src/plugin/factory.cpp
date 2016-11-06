@@ -2,8 +2,6 @@
 // Created by Jonathan Picques on 05/11/2016.
 //
 
-#include <cassert>
-
 #include <dude/plugin/factory.hpp>
 
 #if defined(DUDE_EMBED_PLUGINS)

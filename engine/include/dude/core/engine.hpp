@@ -7,6 +7,7 @@
 #include <memory>
 #include <vector>
 
+#include <dude/plugin/factory.hpp>
 #include <dude/plugin/manager.hpp>
 
 namespace dude { class scene; }
@@ -17,6 +18,7 @@ namespace dude {
     public:
         using scene_t = dude::scene *;
         using managers_t = std::vector<std::unique_ptr<manager>>;
+        using plugin_factory_t = dude::plugin_factory;
 
     public:
         engine() = default;
@@ -43,9 +45,14 @@ namespace dude {
         auto add_manager(std::string const &manager_name, std::unique_ptr<manager> &&add_manager) -> void;
         auto remove_manager(std::string const &manager_name) -> void;
 
+    public:
+        auto plugin_factory() const -> plugin_factory_t const &;
+        auto plugin_factory() -> plugin_factory_t &;
+
     private:
         scene_t _scene;
         managers_t _managers;
+        plugin_factory_t _plugin_factory;
     };
 
 }
