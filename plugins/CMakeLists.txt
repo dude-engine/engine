@@ -1,6 +1,6 @@
 project(dude_plugins)
 
-# Include plugin utils
+# Include plugin helpers
 include(${CMAKE_SOURCE_DIR}/cmake/CMakePlugin.cmake)
 
 # Build managers

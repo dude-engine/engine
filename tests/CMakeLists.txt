@@ -5,7 +5,7 @@ set(BUILD_GTEST ON)
 set(BUILD_GMOCK OFF)
 add_subdirectory(googletest)
 
-# Include test utils
+# Include test helpers
 include(${CMAKE_SOURCE_DIR}/cmake/CMakeTest.cmake)
 
 # Build tests

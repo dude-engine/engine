@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.6)
 project(dude)
 
 # Dude options
-option(DUDE_EMBED_PLUGINS "Embed the plugins in the engine library instead of compiling shared libraries" ON)
+option(DUDE_EMBED_PLUGINS "Embed the plugins in the engine library instead of compiling shared libraries" OFF)
 
 # Dude engine target
 set(DUDE_ENGINE_TARGET engine)

@@ -1,5 +1,6 @@
 # Macro to compile a dude plugin
 # The macro must be used within a cmake project, usually project(dude_${DUDE_PLUGIN_TARGET})
+# The macro assumes the plugin sources lie in the project source directory
 macro(dude_add_plugin DUDE_PLUGIN_TARGET)
     # Plugin variables
     set(DUDE_PLUGIN_SOURCE_DIR "${PROJECT_SOURCE_DIR}/src")

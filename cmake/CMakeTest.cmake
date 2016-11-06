@@ -1,5 +1,6 @@
 # Macro to compile a dude test
 # The macro must be used within a cmake project, usually project(dude_${DUDE_TEST_TARGET})
+# The macro assumes the test sources lie in the project source directory
 macro(dude_add_test DUDE_TEST_TARGET)
     # Test sources
     file(GLOB_RECURSE DUDE_TEST_SOURCES ${PROJECT_SOURCE_DIR}/*.cpp)

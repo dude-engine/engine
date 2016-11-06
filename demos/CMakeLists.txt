@@ -1,6 +1,6 @@
 project(dude_demo)
 
-# Include demo utils
+# Include demo helpers
 include(${CMAKE_SOURCE_DIR}/cmake/CMakeDemo.cmake)
 
 # Build demos

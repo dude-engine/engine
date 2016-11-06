@@ -1,5 +1,6 @@
 # Macro to compile a dude demo
 # The macro must be used within a cmake project, usually project(dude_${DUDE_DEMO_TARGET})
+# The macro assumes the demos sources lie in the project source directory
 macro(dude_add_demo DUDE_DEMO_TARGET)
     # Test sources
     file(GLOB_RECURSE DUDE_DEMO_SOURCES ${PROJECT_SOURCE_DIR}/*.cpp)
