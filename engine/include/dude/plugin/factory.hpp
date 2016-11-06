@@ -68,12 +68,14 @@ namespace dude {
 
     template<typename TManager>
     auto plugin_factory::register_manager(std::string const &manager_name) -> void {
+        static_assert(std::is_base_of<manager, TManager>::value, "template must be a manager subclass");
         assert(_manager_creators.find(manager_name) == _manager_creators.end());
         register_manager(manager_name, [] () -> manager * { return new TManager; });
     }
 
     template<typename TBehavior>
     auto plugin_factory::register_behavior(std::string const &behavior_name) -> void {
+        static_assert(std::is_base_of<behavior, TBehavior>::value, "template must be a behavior subclass");
         assert(_behavior_creators.find(behavior_name) == _behavior_creators.end());
         register_behavior(behavior_name, [] () -> behavior * { return new TBehavior; });
     }
