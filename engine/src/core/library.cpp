@@ -24,6 +24,9 @@
 namespace dude {
 
     library::library(std::string const &path) {
+        #if defined(DUDE_PLATFORM_HTML5) && defined(DUDE_EMBED_PLUGINS)
+            assert(false && "The HTML5 engine has been built without dynamic loading to improve performances");
+        #endif
         #if defined(DUDE_PLATFORM_WINDOWS)
             _library = LoadLibrary((path + LIBRARY_EXT).c_str());
         #else
