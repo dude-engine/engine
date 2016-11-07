@@ -14,8 +14,8 @@ namespace dude {
         virtual ~input() = default;
 
     public:
-        virtual auto on_create() -> void;
-        virtual auto on_destroy() -> void;
+        virtual auto on_create() -> void override final;
+        virtual auto on_destroy() -> void override final;
     };
 
 }

@@ -7,7 +7,7 @@
 #if defined(DUDE_EMBED_PLUGINS)
     #include <managers/input/include/input/input.hpp>
 
-    #include <behaviors/bullet/include/bullet/bullet.hpp>
+    #include <behaviors/projectile/include/projectile/projectile.hpp>
 #endif
 
 namespace dude {
@@ -16,7 +16,7 @@ namespace dude {
         #if defined(DUDE_EMBED_PLUGINS)
             register_manager<dude::input>("input");
 
-            register_behavior<dude::bullet>("bullet");
+            register_behavior<dude::projectile>("projectile");
         #endif
     }
 

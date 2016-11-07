@@ -8,8 +8,10 @@
 #include <dude/plugin/behavior.hpp>
 #include <dude/plugin/factory.hpp>
 
-class manage : public dude::manager {};
-class behave : public dude::behavior {};
+class manage : public dude::manager {
+};
+class behave : public dude::behavior {
+};
 
 TEST(Factory, RegisterPluginsFromType) {
     dude::plugin_factory factory;
@@ -25,24 +27,28 @@ TEST(Factory, RegisterPluginsFromType) {
 }
 
 #if defined(DUDE_EMBED_PLUGINS)
-    TEST(Factory, InputPluginsRegisteredWhenEmbeddingPlugins) {
-        dude::plugin_factory factory;
-        auto manager = factory.make_manager("input");
-        auto behavior = factory.make_behavior("bullet");
-        EXPECT_EQ(manager->name(), "input");
-        EXPECT_EQ(behavior->name(), "bullet");
-    }
+TEST(Factory, InputPluginsRegisteredWhenEmbeddingPlugins) {
+    dude::plugin_factory factory;
+    auto manager = factory.make_manager("input");
+    auto behavior = factory.make_behavior("projectile");
+    EXPECT_EQ(manager->name(), "input");
+    EXPECT_EQ(behavior->name(), "projectile");
+}
 #else
-    TEST(Factory, RegisterPluginsFromSharedLibrary) {
-        dude::plugin_factory factory;
-        factory.register_manager("input", "plugins/managers/input/libmanager_input");
-        factory.register_behavior("bullet", "plugins/behaviors/bullet/libbehavior_bullet");
-        auto manager = factory.make_manager("input");
-        auto behavior = factory.make_behavior("bullet");
-        EXPECT_EQ(manager->name(), "input");
-        EXPECT_EQ(behavior->name(), "bullet");
+TEST(Factory, RegisterPluginsFromSharedLibrary) {
+    dude::plugin_factory factory;
+    factory.register_manager("input", "plugins/managers/input/libmanager_input");
+    factory.register_behavior("projectile", "plugins/behaviors/projectile/libbehavior_projectile");
+    auto manager = factory.make_manager("input");
+    auto behavior = factory.make_behavior("projectile");
+    EXPECT_EQ(manager->name(), "input");
+    EXPECT_EQ(behavior->name(), "projectile");
 
-        EXPECT_DEATH_IF_SUPPORTED(factory.register_behavior("input", "plugins/managers/input/libmanager_input"), "");
-        EXPECT_DEATH_IF_SUPPORTED(factory.register_manager("bullet", "plugins/behaviors/bullet/libbehavior_bullet"), "");
-    }
+    behavior->configure_properties();
+    EXPECT_EQ(behavior->property("speed").get<int>(), 10);
+
+    EXPECT_DEATH_IF_SUPPORTED(factory.register_behavior("input", "plugins/managers/input/libmanager_input"), "");
+    EXPECT_DEATH_IF_SUPPORTED(
+            factory.register_manager("projectile", "plugins/behaviors/projectile/libbehavior_projectile"), "");
+}
 #endif

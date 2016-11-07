@@ -19,6 +19,7 @@ namespace dude {
         using name_t = std::string;
         using engine_t = dude::engine *;
         using enabled_t = bool;
+        using property_t = dude::property;
         using properties_t = std::unordered_map<std::string, property>;
 
     public:
@@ -45,7 +46,8 @@ namespace dude {
 
     public:
         auto properties() const -> properties_t const &;
-        auto properties(properties_t const &) -> void;
+        auto property(std::string const &property_name) const -> property_t const &;
+        auto property(std::string const &property_name) -> property_t &;
 
     public:
         auto enabled() const -> enabled_t const &;

@@ -1,7 +1,7 @@
 project(dude_plugins_behaviors)
 
 # Build plugins
-add_subdirectory(${PROJECT_SOURCE_DIR}/bullet)
+add_subdirectory(${PROJECT_SOURCE_DIR}/projectile)
 
 # Embed plugins in the engine library
 if (DUDE_EMBED_PLUGINS)

@@ -38,8 +38,12 @@ namespace dude {
         return _properties;
     }
 
-    auto plugin::properties(const plugin::properties_t &) -> void {
+    auto plugin::property(std::string const &property_name) const -> const plugin::property_t & {
+        return _properties.at(property_name);
+    }
 
+    auto plugin::property(const std::string &property_name) -> property_t & {
+        return _properties.at(property_name);
     }
 
     auto plugin::enabled() const -> enabled_t const & {
@@ -51,7 +55,7 @@ namespace dude {
     }
 
     auto plugin::configure_properties() -> void {
-
+        _properties = on_properties();
     }
 
 }
