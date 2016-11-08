@@ -30,7 +30,7 @@ namespace dude {
 
     public:
         auto engine() const -> dude::engine *;
-        auto engine(dude::engine * engine) -> void;
+        auto engine(dude::engine *engine) -> void;
 
     public:
         auto name() const -> name_t const &;
@@ -43,7 +43,7 @@ namespace dude {
         auto remove_entity(std::string const &entity_name) -> void;
 
     private:
-        dude::engine * _engine;
+        dude::engine *_engine;
         name_t _name;
         entities_t _entities;
     };

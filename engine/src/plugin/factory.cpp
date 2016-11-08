@@ -6,7 +6,6 @@
 
 #if defined(DUDE_EMBED_PLUGINS)
     #include <managers/input/include/input/input.hpp>
-
     #include <behaviors/projectile/include/projectile/projectile.hpp>
 #endif
 
@@ -15,7 +14,6 @@ namespace dude {
     plugin_factory::plugin_factory() {
         #if defined(DUDE_EMBED_PLUGINS)
             register_manager<dude::input>("input");
-
             register_behavior<dude::projectile>("projectile");
         #endif
     }
