@@ -4,6 +4,7 @@
 
 #include <gtest/gtest.h>
 
+#include <cstddef>
 #include <vector>
 #include <string>
 
@@ -47,7 +48,7 @@ TEST(Property, Basic) {
     EXPECT_EQ(properties.at(0).get<int>(), 32);
     EXPECT_EQ(properties.at(1).get<std::string>(), "hello");
     EXPECT_EQ(properties.at(2).get<float>(), p3.get<float>());
-    EXPECT_EQ(properties.at(3).get<nullptr_t>(), nullptr);
+    EXPECT_EQ(properties.at(3).get<std::nullptr_t>(), nullptr);
 
     properties.at(3) = 78;
 
