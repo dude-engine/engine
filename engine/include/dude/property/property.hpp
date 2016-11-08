@@ -55,23 +55,23 @@ namespace dude {
         ~property() { delete _base; }
 
     public:
-        property &operator=(property p) { swap(*this, p); return *this; }
-        friend void swap(property &a, property &b) { std::swap(a._base, b._base); }
+        property &operator=(property &p) { swap(*this, p); return *this; }
+        friend auto swap(property &a, property &b) -> void { std::swap(a._base, b._base); }
 
     public:
         template<typename T> auto is() const -> bool { return _base != nullptr && _base->is(typeid(T)); }
 
     public:
-        template<typename T> auto get() -> T & { return stat<T>(); };
-        template<typename T> auto get() const -> T const & { return stat<T>(); };
+        template<typename T> auto get() & -> T & { return stat<T>(); };
         template<typename T> auto get() && -> T && { return std::move(stat<T>()); };
+        template<typename T> auto get() const & -> T const & { return stat<T>(); };
 
     public:
         auto empty() const -> bool { return _base == nullptr; }
 
     private:
         template<typename T> auto stat() -> T & { return static_cast<dude_impl::property_data<T> &>(*_base).get(); }
-        template<typename T> auto stat() const  -> T const & { return static_cast<dude_impl::property_data<T> const  &>(*_base).get(); }
+        template<typename T> auto stat() const  -> T const & { return static_cast<dude_impl::property_data<T> const &>(*_base).get(); }
 
     private:
         base_t _base;
