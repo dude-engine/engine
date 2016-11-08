@@ -43,10 +43,12 @@ namespace dude {
         auto name(name_t const &) -> void;
 
     public:
-        auto entities() const -> entities_t const &;
-        auto has_entity(std::string const &entity_name) const -> bool;
-        auto add_entity(std::string const &entity_name, std::unique_ptr<entity> &&add_entity) -> void;
-        auto remove_entity(std::string const &entity_name) -> void;
+        auto child(std::string const &child_name) -> dude::entity *;
+        auto child(std::string const &child_name) const -> dude::entity const *;
+        auto children() const -> entities_t const &;
+        auto has_child(std::string const &child_name) const -> bool;
+        auto add_child(std::string const &child_name) -> dude::entity *;
+        auto remove_child(std::string const &child_name) -> void;
 
     public:
         auto behaviors() const -> behaviors_t const &;
@@ -63,7 +65,7 @@ namespace dude {
         dude::entity *_parent;
         name_t _name;
         enabled_t _enabled;
-        entities_t _entities;
+        entities_t _children;
         behaviors_t _behaviors;
     };
 

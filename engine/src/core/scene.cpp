@@ -22,6 +22,14 @@ namespace dude {
         _name = name;
     }
 
+    auto scene::entity(std::string const &entity_name) -> dude::entity * {
+        return nullptr;
+    }
+
+    auto scene::entity(std::string const &entity_name) const -> dude::entity const * {
+        return nullptr;
+    }
+
     auto scene::entities() const -> const entities_t & {
         return _entities;
     }
@@ -30,7 +38,7 @@ namespace dude {
         return false;
     }
 
-    auto scene::add_entity(std::string const &entity_name, std::unique_ptr<entity> &&add_entity) -> void {
+    auto scene::add_entity(std::string const &entity_name) -> dude::entity * {
 
     }
 

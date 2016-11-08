@@ -37,9 +37,11 @@ namespace dude {
         auto name(name_t const &name) -> void;
 
     public:
+        auto entity(std::string const &entity_name) -> dude::entity *;
+        auto entity(std::string const &entity_name) const -> dude::entity const *;
         auto entities() const -> entities_t const &;
         auto has_entity(std::string const &entity_name) const -> bool;
-        auto add_entity(std::string const &entity_name, std::unique_ptr<entity> &&add_entity) -> void;
+        auto add_entity(std::string const &entity_name) -> dude::entity *;
         auto remove_entity(std::string const &entity_name) -> void;
 
     private:

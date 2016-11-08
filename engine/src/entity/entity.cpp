@@ -30,19 +30,27 @@ namespace dude {
 
     }
 
-    auto entity::entities() const -> const entities_t & {
-        return _entities;
+    auto entity::child(std::string const &child_name) -> dude::entity * {
+        return nullptr;
     }
 
-    auto entity::has_entity(std::string const &entity_name) const -> bool {
+    auto entity::child(std::string const &child_name) const -> dude::entity const * {
+        return nullptr;
+    }
+
+    auto entity::children() const -> const entity::entities_t & {
+        return _children;
+    }
+
+    auto entity::has_child(std::string const &child_name) const -> bool {
         return false;
     }
 
-    auto entity::add_entity(std::string const &entity_name, std::unique_ptr<entity> &&add_entity) -> void {
-
+    auto entity::add_child(std::string const &child_name) -> dude::entity * {
+        return nullptr;
     }
 
-    auto entity::remove_entity(std::string const &entity_name) -> void {
+    auto entity::remove_child(std::string const &child_name) -> void {
 
     }
 
