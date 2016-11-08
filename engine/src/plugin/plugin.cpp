@@ -18,11 +18,11 @@ namespace dude {
         return properties_t();
     }
 
-    auto plugin::engine() const -> dude::engine * {
+    auto plugin::engine() const -> dude::engine* {
         return _engine;
     }
 
-    auto plugin::engine(dude::engine *engine) -> void {
+    auto plugin::engine(dude::engine* engine) -> void {
         _engine = engine;
     }
 

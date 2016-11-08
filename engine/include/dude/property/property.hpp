@@ -67,6 +67,11 @@ namespace dude {
         template<typename T> auto get() const & -> T const & { return stat<T>(); };
 
     public:
+        template<typename T, typename U = decay_t<T>> auto set(T &&t) -> void { clear(); _base = new dude_impl::property_data<U>{std::forward<T>(t)}; }
+        template<typename T> auto operator=(T &&t) -> void { set(std::forward<T>(t)); };
+
+    public:
+        auto clear() -> void { delete _base; _base = nullptr; }
         auto empty() const -> bool { return _base == nullptr; }
 
     private:
