@@ -36,7 +36,7 @@ macro(dude_add_plugin DUDE_PLUGIN_TARGET)
             # Export plugin dynamic library to emscripten filesystem (${CMAKE_BINARY_DIR}/plugins/libplugin_name.js@plugins/libplugin_name.js)
             file(RELATIVE_PATH DUDE_PLUGIN_RELATIVE_DIR ${CMAKE_SOURCE_DIR} ${PROJECT_SOURCE_DIR})
             set(DUDE_PLUGIN_RELATIVE_PATH ${DUDE_PLUGIN_RELATIVE_DIR}/${CMAKE_SHARED_LIBRARY_PREFIX}${DUDE_PLUGIN_TARGET}.js)
-            set(DUDE_PLUGIN_LIBS "${DUDE_PLUGIN_LIBS} ${CMAKE_BINARY_DIR}/${DUDE_PLUGIN_RELATIVE_PATH}@${DUDE_PLUGIN_RELATIVE_PATH}" PARENT_SCOPE)
+            set(DUDE_EMSCRIPTEN_FILESYSTEM "${DUDE_EMSCRIPTEN_FILESYSTEM} --embed-files ${CMAKE_BINARY_DIR}/${DUDE_PLUGIN_RELATIVE_PATH}@${DUDE_PLUGIN_RELATIVE_PATH}" PARENT_SCOPE)
         else ()
             # There is nothing to do
         endif ()

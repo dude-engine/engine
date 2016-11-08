@@ -13,6 +13,6 @@ endif ()
 if (${CMAKE_SYSTEM_NAME} STREQUAL Emscripten)
     if (NOT DUDE_EMBED_PLUGINS)
         # Populate the emscripten filesystem if the plugins are built as shared libraries
-        set(DUDE_EMSCRIPTEN_FILESYSTEM ${DUDE_PLUGIN_LIBS} PARENT_SCOPE)
+        set(DUDE_EMSCRIPTEN_FILESYSTEM ${DUDE_EMSCRIPTEN_FILESYSTEM} PARENT_SCOPE)
     endif ()
 endif ()
