@@ -6,11 +6,11 @@
 
 namespace dude {
 
-    auto scene::engine() const -> engine_t {
+    auto scene::engine() const -> dude::engine * {
         return _engine;
     }
 
-    auto scene::engine(engine_t engine) -> void {
+    auto scene::engine(dude::engine *engine) -> void {
 
     }
 

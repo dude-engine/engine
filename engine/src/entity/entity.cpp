@@ -6,6 +6,22 @@
 
 namespace dude {
 
+    auto entity::scene() const -> dude::scene * {
+        return _scene;
+    }
+
+    auto entity::scene(dude::scene *scene) -> void {
+
+    }
+
+    auto entity::parent() const -> dude::entity * {
+        return _parent;
+    }
+
+    auto entity::parent(dude::entity *parent) -> void {
+
+    }
+
     auto entity::name() const -> name_t const & {
         return _name;
     }

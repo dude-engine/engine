@@ -10,6 +10,8 @@
 
 #include <dude/plugin/behavior.hpp>
 
+namespace dude { class scene; }
+
 namespace dude {
 
     class entity final {
@@ -27,6 +29,14 @@ namespace dude {
         entity(entity const &) = delete;
         entity(entity &&) = delete;
         void operator=(entity const &) = delete;
+
+    public:
+        auto scene() const -> dude::scene *;
+        auto scene(dude::scene *scene) -> void;
+
+    public:
+        auto parent() const -> dude::entity *;
+        auto parent(dude::entity *parent) -> void;
 
     public:
         auto name() const -> name_t const &;
@@ -49,6 +59,8 @@ namespace dude {
         auto enable(bool enable) -> void;
 
     private:
+        dude::scene *_scene;
+        dude::entity *_parent;
         name_t _name;
         enabled_t _enabled;
         entities_t _entities;

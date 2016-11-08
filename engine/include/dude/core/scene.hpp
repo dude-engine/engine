@@ -16,7 +16,6 @@ namespace dude {
 
     class scene final {
     public:
-        using engine_t = dude::engine *;
         using name_t = std::string;
         using entities_t = std::vector<std::unique_ptr<entity>>;
 
@@ -30,8 +29,8 @@ namespace dude {
         void operator=(scene const &) = delete;
 
     public:
-        auto engine() const -> engine_t;
-        auto engine(engine_t engine) -> void;
+        auto engine() const -> dude::engine *;
+        auto engine(dude::engine * engine) -> void;
 
     public:
         auto name() const -> name_t const &;
@@ -44,7 +43,7 @@ namespace dude {
         auto remove_entity(std::string const &entity_name) -> void;
 
     private:
-        engine_t _engine;
+        dude::engine * _engine;
         name_t _name;
         entities_t _entities;
     };

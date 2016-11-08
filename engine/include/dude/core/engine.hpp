@@ -7,6 +7,7 @@
 #include <memory>
 #include <vector>
 
+#include <dude/core/scene.hpp>
 #include <dude/plugin/factory.hpp>
 #include <dude/plugin/manager.hpp>
 
@@ -16,8 +17,8 @@ namespace dude {
 
     class engine final {
     public:
-        using scene_t = dude::scene *;
-        using managers_t = std::vector<std::unique_ptr<manager>>;
+        using scene_t = std::unique_ptr<dude::scene>;
+        using managers_t = std::vector<std::unique_ptr<dude::manager>>;
         using plugin_factory_t = dude::plugin_factory;
 
     public:
@@ -36,8 +37,8 @@ namespace dude {
         auto stop() -> void;
 
     public:
-        auto scene() const -> scene_t;
-        auto load_scene(std::string const &scene_name) -> scene_t;
+        auto scene() const -> dude::scene *;
+        auto load_scene(std::string const &scene_name) -> dude::scene *;
 
     public:
         auto managers() const -> managers_t const &;

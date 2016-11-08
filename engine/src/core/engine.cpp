@@ -22,11 +22,11 @@ namespace dude {
 
     }
 
-    auto engine::scene() const -> scene_t {
-        return _scene;
+    auto engine::scene() const -> dude::scene * {
+        return _scene.get();
     }
 
-    auto engine::load_scene(std::string const &) -> scene_t {
+    auto engine::load_scene(std::string const &) -> dude::scene * {
         return nullptr;
     }
 

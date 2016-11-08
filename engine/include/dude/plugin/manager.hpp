@@ -14,7 +14,6 @@ namespace dude {
 
     class DUDE_API manager : public plugin {
     public:
-        using enabled_t = bool;
         using dependencies_t = std::unordered_set<std::string>;
 
     public:

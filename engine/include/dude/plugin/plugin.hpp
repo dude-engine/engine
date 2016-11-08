@@ -17,7 +17,6 @@ namespace dude {
     class DUDE_API plugin {
     public:
         using name_t = std::string;
-        using engine_t = dude::engine *;
         using enabled_t = bool;
         using property_t = dude::property;
         using properties_t = std::unordered_map<std::string, property>;
@@ -41,8 +40,8 @@ namespace dude {
         auto name(name_t const &) -> void;
 
     public:
-        auto engine() const -> engine_t;
-        auto engine(engine_t engine) -> void;
+        auto engine() const -> dude::engine *;
+        auto engine(dude::engine *engine) -> void;
 
     public:
         auto properties() const -> properties_t const &;
@@ -58,7 +57,7 @@ namespace dude {
 
     private:
         name_t _name;
-        engine_t _engine;
+        dude::engine *_engine;
         enabled_t _enabled = true;
         properties_t _properties;
     };

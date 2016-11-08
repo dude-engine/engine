@@ -26,11 +26,11 @@ namespace dude {
 
     }
 
-    auto behavior::entity() const -> behavior::entity_t {
+    auto behavior::entity() const -> dude::entity * {
         return _entity;
     }
 
-    auto behavior::entity(behavior::entity_t entity) -> void {
+    auto behavior::entity(dude::entity *entity) -> void {
         _entity = entity;
     }
 

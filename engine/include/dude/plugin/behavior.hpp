@@ -16,8 +16,6 @@ namespace dude {
 
     class DUDE_API behavior : public plugin {
     public:
-        using enabled_t = bool;
-        using entity_t = dude::entity *;
         using dependencies_t = std::unordered_set<std::string>;
 
     public:
@@ -39,8 +37,8 @@ namespace dude {
         virtual auto on_stop() -> void;
 
     public:
-        auto entity() const -> entity_t;
-        auto entity(entity_t entity) -> void;
+        auto entity() const -> dude::entity *;
+        auto entity(dude::entity *entity) -> void;
 
     public:
         auto manager_dependencies() const -> dependencies_t const &;
@@ -51,7 +49,7 @@ namespace dude {
         auto configure_dependencies() -> void;
 
     private:
-        entity_t _entity;
+        dude::entity *_entity;
         dependencies_t _manager_dependencies;
         dependencies_t _dependencies;
     };
