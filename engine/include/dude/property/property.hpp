@@ -55,7 +55,7 @@ namespace dude {
         ~property() { delete _base; }
 
     public:
-        property &operator=(property &p) { swap(*this, p); return *this; }
+		property &operator=(property &p) { std::swap(_base, p._base); return *this; }
         friend auto swap(property &a, property &b) -> void { std::swap(a._base, b._base); }
 
     public:
