@@ -52,8 +52,10 @@ namespace dude {
 
     public:
         auto behaviors() const -> behaviors_t const &;
+        auto behavior(std::string const &behavior_name) -> dude::behavior *;
+        auto behavior(std::string const &behavior_name) const -> dude::behavior const *;
         auto has_behavior(std::string const &behavior_name) const -> bool;
-        auto add_behavior(std::string const &, std::unique_ptr<behavior> &&add_behavior) -> void;
+        auto add_behavior(std::string const &behavior_name) -> dude::behavior *;
         auto remove_behavior(std::string const &behavior_name) -> void;
 
     public:

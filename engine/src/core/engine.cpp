@@ -34,12 +34,20 @@ namespace dude {
         return _managers;
     }
 
+    auto engine::manager(std::string const &manager_name) -> dude::manager * {
+        return nullptr;
+    }
+
+    auto engine::manager(std::string const &manager_name) const -> dude::manager const * {
+        return nullptr;
+    }
+
     auto engine::has_manager(std::string const &manager_name) const -> bool {
         return false;
     }
 
-    auto engine::add_manager(std::string const &manager_name, std::unique_ptr<manager> &&add_manager) -> void {
-
+    auto engine::add_manager(std::string const &manager_name) -> dude::manager * {
+        return nullptr;
     }
 
     auto engine::remove_manager(std::string const &manager_name) -> void {

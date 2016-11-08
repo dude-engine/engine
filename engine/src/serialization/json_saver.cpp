@@ -41,8 +41,8 @@ namespace dude {
         writer.StartObject();
         writer.Key("type");
         writer.String("entity");
-        for (auto const &entity : value.entities()) {
-            save(*entity.get(), writer, buffer);
+        for (auto const &child : value.children()) {
+            save(*child.get(), writer, buffer);
         }
         for (auto const &behavior : value.behaviors()) {
             save(*behavior.get(), writer, buffer);

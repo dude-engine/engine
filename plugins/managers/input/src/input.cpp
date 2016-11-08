@@ -8,13 +8,14 @@
 
 namespace dude {
 
-    auto input::on_create() -> void {
-        std::cout << "dude::input::on_create()" << std::endl;
+    input::input() {
+        std::cout << "input::input()" << std::endl;
     }
 
-    auto input::on_destroy() -> void {
-        std::cout << "dude::input::on_destroy()" << std::endl;
+    input::~input() {
+        std::cout << "input::~input()" << std::endl;
     }
+
 }
 
 extern "C" {

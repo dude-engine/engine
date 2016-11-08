@@ -39,7 +39,7 @@ namespace dude {
     }
 
     auto scene::add_entity(std::string const &entity_name) -> dude::entity * {
-
+        return nullptr;
     }
 
     auto scene::remove_entity(std::string const &entity_name) -> void {

@@ -58,12 +58,20 @@ namespace dude {
         return _behaviors;
     }
 
+    auto entity::behavior(std::string const &behavior_name) -> dude::behavior * {
+        return nullptr;
+    }
+
+    auto entity::behavior(std::string const &behavior_name) const -> dude::behavior const * {
+        return nullptr;
+    }
+
     auto entity::has_behavior(std::string const &behavior_name) const -> bool {
         return false;
     }
 
-    auto entity::add_behavior(std::string const &behavior_name, std::unique_ptr<behavior> &&add_behavior) -> void {
-
+    auto entity::add_behavior(std::string const &behavior_name) -> dude::behavior * {
+        return nullptr;
     }
 
     auto entity::remove_behavior(std::string const &behavior_name) -> void {

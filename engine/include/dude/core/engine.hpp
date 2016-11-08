@@ -42,8 +42,10 @@ namespace dude {
 
     public:
         auto managers() const -> managers_t const &;
+        auto manager(std::string const &manager_name) -> dude::manager *;
+        auto manager(std::string const &manager_name) const -> dude::manager const *;
         auto has_manager(std::string const &manager_name) const -> bool;
-        auto add_manager(std::string const &manager_name, std::unique_ptr<manager> &&add_manager) -> void;
+        auto add_manager(std::string const &manager_name) -> dude::manager *;
         auto remove_manager(std::string const &manager_name) -> void;
 
     public:
