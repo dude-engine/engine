@@ -34,11 +34,9 @@ namespace dude {
         virtual auto on_dependencies() -> dependencies_t;
 
     public:
-        virtual auto on_enable() -> void;
         virtual auto on_start() -> void;
         virtual auto on_update() -> void;
         virtual auto on_stop() -> void;
-        virtual auto on_disable() -> void;
 
     public:
         auto entity() const -> entity_t;

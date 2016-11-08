@@ -32,9 +32,9 @@ namespace dude {
         void operator=(plugin const &) = delete;
 
     public:
-        virtual auto on_create() -> void;
-        virtual auto on_destroy() -> void;
         virtual auto on_properties() const -> properties_t;
+        virtual auto on_enable() -> void;
+        virtual auto on_disable() -> void;
 
     public:
         auto name() const -> name_t const &;
@@ -59,7 +59,7 @@ namespace dude {
     private:
         name_t _name;
         engine_t _engine;
-        enabled_t _enabled;
+        enabled_t _enabled = true;
         properties_t _properties;
     };
 

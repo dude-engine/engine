@@ -14,10 +14,6 @@ namespace dude {
         return dependencies_t();
     }
 
-    auto behavior::on_enable() -> void {
-
-    }
-
     auto behavior::on_start() -> void {
 
     }
@@ -27,10 +23,6 @@ namespace dude {
     }
 
     auto behavior::on_stop() -> void {
-
-    }
-
-    auto behavior::on_disable() -> void {
 
     }
 

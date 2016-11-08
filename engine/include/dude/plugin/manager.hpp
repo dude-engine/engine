@@ -27,22 +27,17 @@ namespace dude {
         void operator=(manager const &) = delete;
 
     public:
-        virtual auto on_manager_dependencies() -> dependencies_t;
         virtual auto on_dependencies() -> dependencies_t;
 
     public:
-        virtual auto on_enable() -> void;
         virtual auto on_start() -> void;
         virtual auto on_update() -> void;
         virtual auto on_stop() -> void;
-        virtual auto on_disable() -> void;
 
     public:
-        auto manager_dependencies() const -> dependencies_t const &;
         auto dependencies() const -> dependencies_t const &;
 
     public:
-        auto configure_manager_dependencies() -> void;
         auto configure_dependencies() -> void;
 
     private:

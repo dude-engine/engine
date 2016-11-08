@@ -6,11 +6,11 @@
 
 namespace dude {
 
-    auto plugin::on_create() -> void {
+    auto plugin::on_enable() -> void {
 
     }
 
-    auto plugin::on_destroy() -> void {
+    auto plugin::on_disable() -> void {
 
     }
 
