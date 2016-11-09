@@ -6,6 +6,10 @@
 
 namespace dude {
 
+    engine::engine() : _scene(std::make_unique<dude::scene>()) {
+
+    }
+
     auto engine::start() -> void {
 
     }

@@ -22,7 +22,7 @@ namespace dude {
         using plugin_factory_t = dude::plugin_factory;
 
     public:
-        engine() = default;
+        engine();
         ~engine() = default;
 
     private:
