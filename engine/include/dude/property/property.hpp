@@ -62,9 +62,10 @@ namespace dude {
         template<typename T> auto is() const -> bool { return _base != nullptr && _base->is(typeid(T)); }
 
     public:
-        template<typename T> auto get() & -> T & { return stat<T>(); };
-        template<typename T> auto get() && -> T && { return std::move(stat<T>()); };
-        template<typename T> auto get() const & -> T const & { return stat<T>(); };
+        template<typename T> auto get() & -> T & { return safe_get<T>(); };
+        template<typename T> auto get() && -> T && { return std::move(safe_get<T>()); };
+        template<typename T> auto get() const & -> T const & { return safe_get<T>(); };
+        // template<typename T> operator T() { return safe_get<T>(); };
 
     public:
         template<typename T, typename U = decay_t<T>> auto set(T &&t) -> void { clear(); _base = new dude_impl::property_data<U>{std::forward<T>(t)}; }
@@ -75,8 +76,12 @@ namespace dude {
         auto empty() const -> bool { return _base == nullptr; }
 
     private:
-        template<typename T> auto stat() -> T & { return static_cast<dude_impl::property_data<T> &>(*_base).get(); }
-        template<typename T> auto stat() const  -> T const & { return static_cast<dude_impl::property_data<T> const &>(*_base).get(); }
+        template<typename T> auto safe_get() -> T & { return dynamic_cast<dude_impl::property_data<T> &>(*_base).get(); }
+        template<typename T> auto safe_get() const  -> T const & { return dynamic_cast<dude_impl::property_data<T> const &>(*_base).get(); }
+        /*
+        template<typename T> auto unsafe_get() -> T & { return static_cast<dude_impl::property_data<T> &>(*_base).get(); }
+        template<typename T> auto unsafe_get() const  -> T const & { return static_cast<dude_impl::property_data<T> const &>(*_base).get(); }
+         */
 
     private:
         base_t _base;
