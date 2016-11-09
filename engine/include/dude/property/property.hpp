@@ -29,12 +29,12 @@ namespace dude {
             using std::tuple<T>::tuple;
 
         public:
-            auto get() -> T & { return std::get<0>(*this); }
-            auto get() const -> T const & { return std::get<0>(*this); }
+            auto get() -> T &;
+            auto get() const -> T const &;
 
         public:
-            auto is(std::type_info const &type_info) const -> bool override final { return type_info.name() == typeid(T).name(); }
-            auto copy() const -> property_base * override final { return new property_data{get()}; }
+            auto is(std::type_info const &type_info) const -> bool override final;
+            auto copy() const -> property_base * override final;
         };
 
     }
@@ -50,7 +50,7 @@ namespace dude {
         using base_t = dude::impl::property_base *;
 
     public:
-        template<typename T, typename U = decay_t<T>, typename = none_t<U>> property(T &&t) : _base{new dude::impl::property_data<U>{std::forward<T>(t)}} {}
+        template<typename T, typename U = decay_t<T>, typename = none_t<U>> property(T &&t);
 
     public:
         property();
@@ -62,16 +62,16 @@ namespace dude {
 		property &operator=(property &p);
 
     public:
-        template<typename T> auto is() const -> bool { return _base != nullptr && _base->is(typeid(T)); }
+        template<typename T> auto is() const -> bool;
 
     public:
-        template<typename T> auto get() & -> T & { return safe_get<T>(); };
-        template<typename T> auto get() && -> T && { return std::move(safe_get<T>()); };
-        template<typename T> auto get() const & -> T const & { return safe_get<T>(); };
+        template<typename T> auto get() & -> T &;
+        template<typename T> auto get() && -> T &&;
+        template<typename T> auto get() const & -> T const &;
 
     public:
-        template<typename T, typename U = decay_t<T>> auto set(T &&t) -> void { clear(); _base = new dude::impl::property_data<U>{std::forward<T>(t)}; }
-        template<typename T> auto operator=(T &&t) -> void { set(std::forward<T>(t)); };
+        template<typename T, typename U = decay_t<T>> auto set(T &&t) -> void;
+        template<typename T> auto operator=(T &&t) -> void;
 
     public:
         auto clear() -> void;
@@ -81,11 +81,89 @@ namespace dude {
         friend auto swap(property &a, property &b) -> void;
 
     private:
-        template<typename T> auto safe_get() -> T & { return dynamic_cast<dude::impl::property_data<T> &>(*_base).get(); }
-        template<typename T> auto safe_get() const  -> T const & { return dynamic_cast<dude::impl::property_data<T> const &>(*_base).get(); }
+        template<typename T> auto safe_get() -> T &;
+        template<typename T> auto safe_get() const -> T const &;
 
     private:
         base_t _base;
     };
+
+}
+
+namespace dude {
+
+    namespace impl {
+
+        template <typename T>
+        auto property_data<T>::get() -> T & {
+            return std::get<0>(*this);
+        }
+
+        template <typename T>
+        auto property_data<T>::get() const -> T const & {
+            return std::get<0>(*this);
+        }
+
+        template <typename T>
+        auto property_data<T>::is(std::type_info const &type_info) const -> bool {
+            return type_info.name() == typeid(T).name();
+        }
+
+        template <typename T>
+        auto property_data<T>::copy() const -> property_base * {
+            return new property_data{get()};
+        }
+
+    }
+
+}
+
+namespace dude {
+
+    template<typename T, typename U = property::decay_t<T>, typename = property::none_t<U>>
+    property::property(T &&t) : _base{new dude::impl::property_data<U>{std::forward<T>(t)}} {
+
+    }
+
+    template<typename T>
+    auto property::is() const -> bool {
+        return _base != nullptr && _base->is(typeid(T));
+    }
+
+    template<typename T>
+    auto property::get() & -> T & {
+        return safe_get<T>();
+    }
+
+    template<typename T>
+    auto property::get() && -> T && {
+        return std::move(safe_get<T>());
+    }
+
+    template<typename T>
+    auto property::get() const & -> T const & {
+        return safe_get<T>();
+    }
+
+    template<typename T, typename U = property::decay_t<T>>
+    auto property::set(T &&t) -> void {
+        clear();
+        _base = new dude::impl::property_data<U>{std::forward<T>(t)};
+    }
+
+    template<typename T>
+    auto property::operator=(T &&t) -> void {
+        set(std::forward<T>(t));
+    }
+
+    template<typename T>
+    auto property::safe_get() -> T & {
+        return dynamic_cast<dude::impl::property_data<T> &>(*_base).get();
+    }
+
+    template<typename T>
+    auto property::safe_get() const  -> T const & {
+        return dynamic_cast<dude::impl::property_data<T> const &>(*_base).get();
+    }
 
 }
