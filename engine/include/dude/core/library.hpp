@@ -19,7 +19,7 @@ namespace dude {
     private:
         library(library const &) = delete;
         library(library &&) = delete;
-        void operator=(library const &) = delete;
+        auto operator=(library const &) -> void = delete;
 
     public:
         template<typename T> auto symbol(std::string const &symbol_name) const -> T;

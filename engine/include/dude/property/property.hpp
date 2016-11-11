@@ -59,7 +59,7 @@ namespace dude {
         ~property();
 
     public:
-		property &operator=(property &p);
+		auto operator=(property &p) -> property &;
 
     public:
         template<typename T> auto is() const -> bool;

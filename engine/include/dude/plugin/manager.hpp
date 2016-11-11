@@ -23,7 +23,7 @@ namespace dude {
     private:
         manager(manager const &) = delete;
         manager(manager &&) = delete;
-        void operator=(manager const &) = delete;
+        auto operator=(manager const &) -> void = delete;
 
     public:
         virtual auto on_dependencies() -> dependencies_t;

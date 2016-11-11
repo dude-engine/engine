@@ -25,7 +25,7 @@ namespace dude {
     private:
         behavior(behavior const &) = delete;
         behavior(behavior &&) = delete;
-        void operator=(behavior const &) = delete;
+        auto operator=(behavior const &) -> void = delete;
 
     public:
         virtual auto on_manager_dependencies() -> dependencies_t;

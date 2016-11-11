@@ -28,7 +28,7 @@ namespace dude {
     private:
         engine(engine const &) = delete;
         engine(engine &&) = delete;
-        void operator=(engine const &) = delete;
+        auto operator=(engine const &) -> void = delete;
 
     public:
         auto start() -> void;

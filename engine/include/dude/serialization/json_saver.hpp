@@ -29,7 +29,7 @@ namespace dude {
     private:
         json_saver(json_saver const &) = delete;
         json_saver(json_saver &&) = delete;
-        void operator=(json_saver const &) = delete;
+        auto operator=(json_saver const &) -> void = delete;
 
     public:
         auto save(engine const &value) const -> std::string;

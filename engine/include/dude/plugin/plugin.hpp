@@ -28,7 +28,7 @@ namespace dude {
     private:
         plugin(plugin const &) = delete;
         plugin(plugin &&) = delete;
-        void operator=(plugin const &) = delete;
+        auto operator=(plugin const &) -> void = delete;
 
     public:
         virtual auto on_properties() const -> properties_t;
