@@ -26,6 +26,10 @@ namespace dude {
 
     }
 
+    auto engine::get_timer() const -> timer_t const & {
+        return _timer;
+    }
+
     auto engine::get_scene() const -> dude::scene * {
         return _scene.get();
     }
