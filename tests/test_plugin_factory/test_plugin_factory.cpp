@@ -28,7 +28,7 @@ TEST(Factory, RegisterPluginsFromType) {
 }
 
 #if defined(DUDE_EMBED_PLUGINS)
-TEST(Factory, InputPluginsRegisteredWhenEmbeddingPlugins) {
+TEST(Factory, RegisterPluginsFromEmbeddedType) {
     dude::plugin_factory factory;
     auto manager = std::unique_ptr<dude::manager>(factory.make_manager("input"));
     auto behavior = std::unique_ptr<dude::behavior>(factory.make_behavior("projectile"));
