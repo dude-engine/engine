@@ -120,7 +120,7 @@ namespace dude {
 
 namespace dude {
 
-    template<typename T, typename U = property::decay_t<T>, typename = property::none_t<U>>
+    template<typename T, typename U, typename>
     property::property(T &&t) : _base{new dude::impl::property_data<U>{std::forward<T>(t)}} {
 
     }
@@ -145,7 +145,7 @@ namespace dude {
         return safe_get<T>();
     }
 
-    template<typename T, typename U = property::decay_t<T>>
+    template<typename T, typename U>
     auto property::set(T &&t) -> void {
         clear();
         _base = new dude::impl::property_data<U>{std::forward<T>(t)};
