@@ -14,6 +14,7 @@
 #include <dude/plugin/manager.hpp>
 #include <dude/entity/entity.hpp>
 #include <dude/plugin/behavior.hpp>
+#include <dude/property/property.hpp>
 
 namespace dude {
 
@@ -39,6 +40,7 @@ namespace dude {
         auto save(manager const &value, writer_t &writer, buffer_t &buffer) const -> void;
         auto save(entity const &value, writer_t &writer, buffer_t &buffer) const -> void;
         auto save(behavior const &value, writer_t &writer, buffer_t &buffer) const -> void;
+        auto save(property const &value, writer_t &writer, buffer_t &buffer) const -> void;
     };
 
 }

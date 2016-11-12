@@ -57,4 +57,18 @@ namespace dude {
         writer.EndObject();
     }
 
+    auto json_saver::save(property const &value, json_saver::writer_t &writer, json_saver::buffer_t &buffer) const -> void {
+        if (value.is<int>()) {
+            writer.Int(value.get<int>());
+        } else if (value.is<float>()) {
+            writer.Double(value.get<float>());
+        } else if (value.is<double>()) {
+            writer.Double(value.get<double>());
+        } else if (value.is<std::string>()) {
+            writer.String(value.get<std::string>().c_str());
+        } else {
+            writer.Null();
+        }
+    }
+
 }

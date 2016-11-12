@@ -6,7 +6,9 @@
 
 #include <type_traits>
 #include <typeinfo>
+#include <utility>
 #include <cstddef>
+#include <string>
 #include <tuple>
 
 namespace dude {
@@ -15,8 +17,8 @@ namespace dude {
 
         class property_base {
         public:
-            property_base();
-            virtual ~property_base();
+            property_base() = default;
+            virtual ~property_base() = default;
 
         public:
             virtual auto is(std::type_info const &type_info) const -> bool = 0;
@@ -24,9 +26,16 @@ namespace dude {
         };
 
         template<typename T>
-        class property_data : public property_base, public std::tuple<T> {
+        class property_data : public property_base, std::tuple<T> {
         public:
-            using std::tuple<T>::tuple;
+            template<typename ...Args>
+            property_data(Args &&...args) : std::tuple<T>(std::forward<Args>(args)...) {
+                static_assert(std::is_same<T, int>::value ||
+                              std::is_same<T, float>::value ||
+                              std::is_same<T, std::string>::value,
+                              "properties can only be of type int, float or string");
+            };
+            ~property_data() = default;
 
         public:
             auto get() -> T &;
@@ -53,13 +62,13 @@ namespace dude {
         template<typename T, typename U = decay_t<T>, typename = none_t<U>> property(T &&t);
 
     public:
-        property();
+        property() = default;
         property(property const &p);
         property(property &&p);
         ~property();
 
     public:
-		auto operator=(property &p) -> property &;
+        auto operator=(property &p) -> property &;
 
     public:
         template<typename T> auto is() const -> bool;
@@ -94,22 +103,22 @@ namespace dude {
 
     namespace impl {
 
-        template <typename T>
+        template<typename T>
         auto property_data<T>::get() -> T & {
             return std::get<0>(*this);
         }
 
-        template <typename T>
+        template<typename T>
         auto property_data<T>::get() const -> T const & {
             return std::get<0>(*this);
         }
 
-        template <typename T>
+        template<typename T>
         auto property_data<T>::is(std::type_info const &type_info) const -> bool {
             return type_info.name() == typeid(T).name();
         }
 
-        template <typename T>
+        template<typename T>
         auto property_data<T>::copy() const -> property_base * {
             return new property_data{get()};
         }

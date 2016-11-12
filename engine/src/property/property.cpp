@@ -6,26 +6,6 @@
 
 namespace dude {
 
-    namespace impl {
-
-        property_base::property_base() {
-
-        }
-
-        property_base::~property_base() {
-
-        }
-
-    }
-
-}
-
-namespace dude {
-
-    property::property() {
-
-    }
-
     property::property(property const &p) : _base(p._base->copy()) {
 
     }

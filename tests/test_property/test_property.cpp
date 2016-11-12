@@ -31,24 +31,17 @@ TEST(Property, Basic) {
     EXPECT_TRUE(p6.is<std::string>());
     EXPECT_EQ(p6.get<std::string>(), "empty");
 
-    int value = 32;
-    p3.set<int *>(&value);
-
-    EXPECT_TRUE(p3.is<int *>());
-    EXPECT_EQ(p3.get<int *>(), &value);
-    EXPECT_EQ(*p3.get<int *>(), value);
-
     p3 = 3.0f;
 
     EXPECT_TRUE(p3.is<float>());
     EXPECT_EQ(p3.get<float>(), 3.0f);
 
-    std::vector<dude::property> properties({32, std::string{"hello"}, p3, nullptr});
+    std::vector<dude::property> properties({32, std::string{"hello"}, p3, 78.f});
 
     EXPECT_EQ(properties.at(0).get<int>(), 32);
     EXPECT_EQ(properties.at(1).get<std::string>(), "hello");
     EXPECT_EQ(properties.at(2).get<float>(), p3.get<float>());
-    EXPECT_EQ(properties.at(3).get<std::nullptr_t>(), nullptr);
+    EXPECT_EQ(properties.at(3).get<float>(), 78.f);
 
     properties.at(3) = 78;
 
