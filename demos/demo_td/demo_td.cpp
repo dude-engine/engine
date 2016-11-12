@@ -19,22 +19,17 @@ public:
     }
 
     virtual void on_start() override {
-        get_engine()->add_manager("platform");
+        _platform = get_engine()->add_manager("platform");
     }
 
     virtual void on_update() override {
-        if (!_removed && get_engine()->get_timer().elapsed() > 0.5) {
-            get_property("lives") = get_engine()->get_manager("platform")->get_property("speed").get<int>();
-            get_engine()->remove_manager("platform");
-            _removed = true;
-        }
         if (get_engine()->get_timer().elapsed() > 1) {
+            get_property("lives") = _platform->get_property("speed").get<int>();
             get_engine()->stop();
         }
     }
-
 private:
-    bool _removed = false;
+    dude::manager *_platform;
 };
 
 class platform : public dude::manager {
