@@ -6,7 +6,7 @@
 
 namespace dude {
 
-    auto json_saver::save(const engine &value) const -> std::string {
+    auto json_saver::save(engine const &value) const -> std::string {
         buffer_t buffer;
         writer_t writer(buffer);
 
@@ -30,14 +30,7 @@ namespace dude {
         writer.EndObject();
     }
 
-    void json_saver::save(const manager &value, writer_t &writer, buffer_t &buffer) const {
-        writer.StartObject();
-        writer.Key("type");
-        writer.String("manager");
-        writer.EndObject();
-    }
-
-    auto json_saver::save(const entity &value, writer_t &writer, buffer_t &buffer) const -> void {
+    auto json_saver::save(entity const &value, writer_t &writer, buffer_t &buffer) const -> void {
         writer.StartObject();
         writer.Key("type");
         writer.String("entity");
@@ -50,14 +43,35 @@ namespace dude {
         writer.EndObject();
     }
 
-    auto json_saver::save(const behavior &value, writer_t &writer, buffer_t &buffer) const -> void {
+    void json_saver::save(manager const &value, writer_t &writer, buffer_t &buffer) const {
         writer.StartObject();
         writer.Key("type");
-        writer.String("behavior");
+        writer.String("manager");
+        writer.Key("properties");
+        writer.StartObject();
+        for (const auto &property: value.get_properties()) {
+            writer.String(property.first.c_str());
+            save(property.second, writer, buffer);
+        }
+        writer.EndObject();
         writer.EndObject();
     }
 
-    auto json_saver::save(property const &value, json_saver::writer_t &writer, json_saver::buffer_t &buffer) const -> void {
+    auto json_saver::save(behavior const &value, writer_t &writer, buffer_t &buffer) const -> void {
+        writer.StartObject();
+        writer.Key("type");
+        writer.String("behavior");
+        writer.Key("properties");
+        writer.StartObject();
+        for (const auto &property: value.get_properties()) {
+            writer.String(property.first.c_str());
+            save(property.second, writer, buffer);
+        }
+        writer.EndObject();
+        writer.EndObject();
+    }
+
+    auto json_saver::save(property const &value, writer_t &writer, buffer_t &buffer) const -> void {
         if (value.is<int>()) {
             writer.Int(value.get<int>());
         } else if (value.is<float>()) {
