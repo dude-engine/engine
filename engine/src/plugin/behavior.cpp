@@ -26,19 +26,19 @@ namespace dude {
 
     }
 
-    auto behavior::entity() const -> dude::entity * {
+    auto behavior::get_entity() const -> dude::entity * {
         return _entity;
     }
 
-    auto behavior::entity(dude::entity *entity) -> void {
+    auto behavior::set_entity(dude::entity *entity) -> void {
         _entity = entity;
     }
 
-    auto behavior::manager_dependencies() const -> const dependencies_t & {
+    auto behavior::get_manager_dependencies() const -> const dependencies_t & {
         return _manager_dependencies;
     }
 
-    auto behavior::dependencies() const -> const dependencies_t & {
+    auto behavior::get_dependencies() const -> const dependencies_t & {
         return _dependencies;
     }
 

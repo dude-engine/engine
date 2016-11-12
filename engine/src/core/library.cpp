@@ -43,7 +43,7 @@ namespace dude {
         #endif
     }
 
-    auto library::_symbol(std::string const &symbol_name) const -> void * {
+    auto library::_get_symbol(std::string const &symbol_name) const -> void * {
         auto void_symbol = static_cast<void *>(nullptr);
         #if defined(DUDE_PLATFORM_WINDOWS)
             void_symbol = reinterpret_cast<void *>(GetProcAddress(reinterpret_cast<HMODULE>(_library), symbol_name.c_str()));

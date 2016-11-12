@@ -6,39 +6,39 @@
 
 namespace dude {
 
-    auto entity::scene() const -> dude::scene * {
+    auto entity::get_scene() const -> dude::scene * {
         return _scene;
     }
 
-    auto entity::scene(dude::scene *scene) -> void {
+    auto entity::set_scene(dude::scene *scene) -> void {
 
     }
 
-    auto entity::parent() const -> dude::entity * {
+    auto entity::get_parent() const -> dude::entity * {
         return _parent;
     }
 
-    auto entity::parent(dude::entity *parent) -> void {
+    auto entity::set_parent(dude::entity *parent) -> void {
 
     }
 
-    auto entity::name() const -> name_t const & {
+    auto entity::get_name() const -> name_t const & {
         return _name;
     }
 
-    auto entity::name(name_t const &name) -> void {
+    auto entity::set_name(name_t const &name) -> void {
 
     }
 
-    auto entity::child(std::string const &child_name) -> dude::entity * {
+    auto entity::get_child(std::string const &child_name) -> dude::entity * {
         return nullptr;
     }
 
-    auto entity::child(std::string const &child_name) const -> dude::entity const * {
+    auto entity::get_child(std::string const &child_name) const -> dude::entity const * {
         return nullptr;
     }
 
-    auto entity::children() const -> const entity::entities_t & {
+    auto entity::get_children() const -> const entity::entities_t & {
         return _children;
     }
 
@@ -54,15 +54,15 @@ namespace dude {
 
     }
 
-    auto entity::behaviors() const -> const entity::behaviors_t & {
+    auto entity::get_behaviors() const -> const entity::behaviors_t & {
         return _behaviors;
     }
 
-    auto entity::behavior(std::string const &behavior_name) -> dude::behavior * {
+    auto entity::get_behavior(std::string const &behavior_name) -> dude::behavior * {
         return nullptr;
     }
 
-    auto entity::behavior(std::string const &behavior_name) const -> dude::behavior const * {
+    auto entity::get_behavior(std::string const &behavior_name) const -> dude::behavior const * {
         return nullptr;
     }
 
@@ -78,11 +78,11 @@ namespace dude {
 
     }
 
-    auto entity::enabled() const -> bool {
+    auto entity::is_enabled() const -> bool {
         return _enabled;
     }
 
-    auto entity::enable(bool enable) -> void {
+    auto entity::set_enabled(bool enable) -> void {
 
     }
 

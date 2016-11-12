@@ -36,21 +36,21 @@ namespace dude {
         virtual auto on_disable() -> void;
 
     public:
-        auto name() const -> name_t const &;
-        auto name(name_t const &) -> void;
+        auto get_name() const -> name_t const &;
+        auto set_name(name_t const &) -> void;
 
     public:
-        auto engine() const -> dude::engine *;
-        auto engine(dude::engine *engine) -> void;
+        auto get_engine() const -> dude::engine *;
+        auto set_engine(dude::engine *engine) -> void;
 
     public:
-        auto properties() const -> properties_t const &;
-        auto property(std::string const &property_name) const -> property_t const &;
-        auto property(std::string const &property_name) -> property_t &;
+        auto get_properties() const -> properties_t const &;
+        auto get_property(std::string const &property_name) const -> property_t const &;
+        auto get_property(std::string const &property_name) -> property_t &;
 
     public:
-        auto enabled() const -> enabled_t const &;
-        auto enable(enabled_t const &enable) -> void;
+        auto is_enabled() const -> enabled_t const &;
+        auto set_enabled(enabled_t const &enable) -> void;
 
     public:
         auto configure_properties() -> void;

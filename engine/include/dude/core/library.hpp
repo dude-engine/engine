@@ -22,10 +22,10 @@ namespace dude {
         auto operator=(library const &) -> void = delete;
 
     public:
-        template<typename T> auto symbol(std::string const &symbol_name) const -> T;
+        template<typename T> auto get_symbol(std::string const &symbol_name) const -> T;
 
     private:
-        auto _symbol(std::string const &symbol_name) const -> void *;
+        auto _get_symbol(std::string const &symbol_name) const -> void *;
 
     private:
         library_t _library;
@@ -36,8 +36,8 @@ namespace dude {
 namespace dude {
 
     template<typename T>
-    auto library::symbol(std::string const &symbol_name) const -> T {
-        return *reinterpret_cast<T>(_symbol(symbol_name));
+    auto library::get_symbol(std::string const &symbol_name) const -> T {
+        return *reinterpret_cast<T>(_get_symbol(symbol_name));
     }
 
 }

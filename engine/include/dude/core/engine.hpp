@@ -37,20 +37,20 @@ namespace dude {
         auto stop() -> void;
 
     public:
-        auto scene() const -> dude::scene *;
+        auto get_scene() const -> dude::scene *;
         auto load_scene(std::string const &scene_name) -> dude::scene *;
 
     public:
-        auto managers() const -> managers_t const &;
-        auto manager(std::string const &manager_name) -> dude::manager *;
-        auto manager(std::string const &manager_name) const -> dude::manager const *;
+        auto get_managers() const -> managers_t const &;
+        auto get_manager(std::string const &manager_name) -> dude::manager *;
+        auto get_manager(std::string const &manager_name) const -> dude::manager const *;
         auto has_manager(std::string const &manager_name) const -> bool;
         auto add_manager(std::string const &manager_name) -> dude::manager *;
         auto remove_manager(std::string const &manager_name) -> void;
 
     public:
-        auto plugin_factory() const -> plugin_factory_t const &;
-        auto plugin_factory() -> plugin_factory_t &;
+        auto get_plugin_factory() const -> plugin_factory_t const &;
+        auto get_plugin_factory() -> plugin_factory_t &;
 
     private:
         scene_t _scene;

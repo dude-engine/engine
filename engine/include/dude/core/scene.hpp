@@ -29,17 +29,17 @@ namespace dude {
         auto operator=(scene const &) -> void = delete;
 
     public:
-        auto engine() const -> dude::engine *;
-        auto engine(dude::engine *engine) -> void;
+        auto get_engine() const -> dude::engine *;
+        auto set_engine(dude::engine *engine) -> void;
 
     public:
-        auto name() const -> name_t const &;
-        auto name(name_t const &name) -> void;
+        auto get_name() const -> name_t const &;
+        auto set_name(name_t const &name) -> void;
 
     public:
-        auto entity(std::string const &entity_name) -> dude::entity *;
-        auto entity(std::string const &entity_name) const -> dude::entity const *;
-        auto entities() const -> entities_t const &;
+        auto get_entity(std::string const &entity_name) -> dude::entity *;
+        auto get_entity(std::string const &entity_name) const -> dude::entity const *;
+        auto get_entities() const -> entities_t const &;
         auto has_entity(std::string const &entity_name) const -> bool;
         auto add_entity(std::string const &entity_name) -> dude::entity *;
         auto remove_entity(std::string const &entity_name) -> void;

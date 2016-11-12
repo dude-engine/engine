@@ -31,36 +31,36 @@ namespace dude {
         auto operator=(entity const &) -> void = delete;
 
     public:
-        auto scene() const -> dude::scene *;
-        auto scene(dude::scene *scene) -> void;
+        auto get_scene() const -> dude::scene *;
+        auto set_scene(dude::scene *scene) -> void;
 
     public:
-        auto parent() const -> dude::entity *;
-        auto parent(dude::entity *parent) -> void;
+        auto get_parent() const -> dude::entity *;
+        auto set_parent(dude::entity *parent) -> void;
 
     public:
-        auto name() const -> name_t const &;
-        auto name(name_t const &) -> void;
+        auto get_name() const -> name_t const &;
+        auto set_name(name_t const &) -> void;
 
     public:
-        auto child(std::string const &child_name) -> dude::entity *;
-        auto child(std::string const &child_name) const -> dude::entity const *;
-        auto children() const -> entities_t const &;
+        auto get_child(std::string const &child_name) -> dude::entity *;
+        auto get_child(std::string const &child_name) const -> dude::entity const *;
+        auto get_children() const -> entities_t const &;
         auto has_child(std::string const &child_name) const -> bool;
         auto add_child(std::string const &child_name) -> dude::entity *;
         auto remove_child(std::string const &child_name) -> void;
 
     public:
-        auto behaviors() const -> behaviors_t const &;
-        auto behavior(std::string const &behavior_name) -> dude::behavior *;
-        auto behavior(std::string const &behavior_name) const -> dude::behavior const *;
+        auto get_behaviors() const -> behaviors_t const &;
+        auto get_behavior(std::string const &behavior_name) -> dude::behavior *;
+        auto get_behavior(std::string const &behavior_name) const -> dude::behavior const *;
         auto has_behavior(std::string const &behavior_name) const -> bool;
         auto add_behavior(std::string const &behavior_name) -> dude::behavior *;
         auto remove_behavior(std::string const &behavior_name) -> void;
 
     public:
-        auto enabled() const -> bool;
-        auto enable(bool enable) -> void;
+        auto is_enabled() const -> bool;
+        auto set_enabled(bool enabled) -> void;
 
     private:
         dude::scene *_scene;

@@ -26,7 +26,7 @@ namespace dude {
 
     }
 
-    auto engine::scene() const -> dude::scene * {
+    auto engine::get_scene() const -> dude::scene * {
         return _scene.get();
     }
 
@@ -34,15 +34,15 @@ namespace dude {
         return nullptr;
     }
 
-    auto engine::managers() const -> const managers_t & {
+    auto engine::get_managers() const -> const managers_t & {
         return _managers;
     }
 
-    auto engine::manager(std::string const &manager_name) -> dude::manager * {
+    auto engine::get_manager(std::string const &manager_name) -> dude::manager * {
         return nullptr;
     }
 
-    auto engine::manager(std::string const &manager_name) const -> dude::manager const * {
+    auto engine::get_manager(std::string const &manager_name) const -> dude::manager const * {
         return nullptr;
     }
 
@@ -58,11 +58,11 @@ namespace dude {
 
     }
 
-    auto engine::plugin_factory() const -> const engine::plugin_factory_t & {
+    auto engine::get_plugin_factory() const -> const engine::plugin_factory_t & {
         return _plugin_factory;
     }
 
-    auto engine::plugin_factory() -> engine::plugin_factory_t & {
+    auto engine::get_plugin_factory() -> engine::plugin_factory_t & {
         return _plugin_factory;
     }
 

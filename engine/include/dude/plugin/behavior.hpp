@@ -37,12 +37,12 @@ namespace dude {
         virtual auto on_stop() -> void;
 
     public:
-        auto entity() const -> dude::entity *;
-        auto entity(dude::entity *entity) -> void;
+        auto get_entity() const -> dude::entity *;
+        auto set_entity(dude::entity *entity) -> void;
 
     public:
-        auto manager_dependencies() const -> dependencies_t const &;
-        auto dependencies() const -> dependencies_t const &;
+        auto get_manager_dependencies() const -> dependencies_t const &;
+        auto get_dependencies() const -> dependencies_t const &;
 
     public:
         auto configure_manager_dependencies() -> void;

@@ -13,7 +13,7 @@ namespace dude {
         writer.StartObject();
         writer.Key("type");
         writer.String("engine");
-        for (auto const &manager : value.managers()) {
+        for (auto const &manager : value.get_managers()) {
             save(*manager.get(), writer, buffer);
         }
         writer.EndObject();
@@ -24,7 +24,7 @@ namespace dude {
         writer.StartObject();
         writer.Key("type");
         writer.String("scene");
-        for (auto const &entity : value.entities()) {
+        for (auto const &entity : value.get_entities()) {
             save(*entity.get(), writer, buffer);
         }
         writer.EndObject();
@@ -41,10 +41,10 @@ namespace dude {
         writer.StartObject();
         writer.Key("type");
         writer.String("entity");
-        for (auto const &child : value.children()) {
+        for (auto const &child : value.get_children()) {
             save(*child.get(), writer, buffer);
         }
-        for (auto const &behavior : value.behaviors()) {
+        for (auto const &behavior : value.get_behaviors()) {
             save(*behavior.get(), writer, buffer);
         }
         writer.EndObject();

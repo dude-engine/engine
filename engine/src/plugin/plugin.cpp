@@ -18,39 +18,39 @@ namespace dude {
         return properties_t();
     }
 
-    auto plugin::engine() const -> dude::engine* {
+    auto plugin::get_engine() const -> dude::engine* {
         return _engine;
     }
 
-    auto plugin::engine(dude::engine* engine) -> void {
+    auto plugin::set_engine(dude::engine* engine) -> void {
         _engine = engine;
     }
 
-    auto plugin::name() const -> name_t const & {
+    auto plugin::get_name() const -> name_t const & {
         return _name;
     }
 
-    auto plugin::name(name_t const &name) -> void {
+    auto plugin::set_name(name_t const &name) -> void {
         _name = name;
     }
 
-    auto plugin::properties() const -> const plugin::properties_t & {
+    auto plugin::get_properties() const -> const plugin::properties_t & {
         return _properties;
     }
 
-    auto plugin::property(std::string const &property_name) const -> const plugin::property_t & {
+    auto plugin::get_property(std::string const &property_name) const -> const plugin::property_t & {
         return _properties.at(property_name);
     }
 
-    auto plugin::property(const std::string &property_name) -> property_t & {
+    auto plugin::get_property(const std::string &property_name) -> property_t & {
         return _properties.at(property_name);
     }
 
-    auto plugin::enabled() const -> enabled_t const & {
+    auto plugin::is_enabled() const -> enabled_t const & {
         return _enabled;
     }
 
-    auto plugin::enable(enabled_t const &enable) -> void {
+    auto plugin::set_enabled(enabled_t const &enable) -> void {
 
     }
 

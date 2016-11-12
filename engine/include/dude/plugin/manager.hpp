@@ -34,7 +34,7 @@ namespace dude {
         virtual auto on_stop() -> void;
 
     public:
-        auto dependencies() const -> dependencies_t const &;
+        auto get_dependencies() const -> dependencies_t const &;
 
     public:
         auto configure_dependencies() -> void;

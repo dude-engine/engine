@@ -22,7 +22,7 @@ namespace dude {
 
     }
 
-    auto manager::dependencies() const -> const dependencies_t & {
+    auto manager::get_dependencies() const -> const dependencies_t & {
         return _dependencies;
     }
 

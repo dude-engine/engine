@@ -6,31 +6,31 @@
 
 namespace dude {
 
-    auto scene::engine() const -> dude::engine * {
+    auto scene::get_engine() const -> dude::engine * {
         return _engine;
     }
 
-    auto scene::engine(dude::engine *engine) -> void {
+    auto scene::set_engine(dude::engine *engine) -> void {
 
     }
 
-    auto scene::name() const -> name_t const & {
+    auto scene::get_name() const -> name_t const & {
         return _name;
     }
 
-    auto scene::name(name_t const &name) -> void {
+    auto scene::set_name(name_t const &name) -> void {
         _name = name;
     }
 
-    auto scene::entity(std::string const &entity_name) -> dude::entity * {
+    auto scene::get_entity(std::string const &entity_name) -> dude::entity * {
         return nullptr;
     }
 
-    auto scene::entity(std::string const &entity_name) const -> dude::entity const * {
+    auto scene::get_entity(std::string const &entity_name) const -> dude::entity const * {
         return nullptr;
     }
 
-    auto scene::entities() const -> const entities_t & {
+    auto scene::get_entities() const -> const entities_t & {
         return _entities;
     }
 
