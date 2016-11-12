@@ -6,7 +6,7 @@
 
 #include <string>
 
-#include <rapidjson/writer.h>
+#include <rapidjson/prettywriter.h>
 #include <rapidjson/stringbuffer.h>
 
 #include <dude/core/engine.hpp>
@@ -21,7 +21,7 @@ namespace dude {
     class json_saver final {
     public:
         using buffer_t = rapidjson::StringBuffer;
-        using writer_t = rapidjson::Writer<buffer_t>;
+        using writer_t = rapidjson::PrettyWriter<buffer_t>;
 
     public:
         json_saver() = default;

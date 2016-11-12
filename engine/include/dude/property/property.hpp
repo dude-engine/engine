@@ -32,8 +32,9 @@ namespace dude {
             property_data(Args &&...args) : std::tuple<T>(std::forward<Args>(args)...) {
                 static_assert(std::is_same<T, int>::value ||
                               std::is_same<T, float>::value ||
+                              std::is_same<T, double>::value ||
                               std::is_same<T, std::string>::value,
-                              "properties can only be of type int, float or string");
+                              "properties can only be of type int, float, double or string");
             };
             ~property_data() = default;
 

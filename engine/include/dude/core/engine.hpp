@@ -35,7 +35,7 @@ namespace dude {
         auto operator=(engine const &) -> void = delete;
 
     public:
-        auto start() -> void;
+        auto run() -> void;
         auto pause() -> void;
         auto resume() -> void;
         auto stop() -> void;
@@ -64,6 +64,10 @@ namespace dude {
         scene_t _scene;
         managers_t _managers;
         plugin_factory_t _plugin_factory;
+
+    private:
+        bool _stopped;
+        bool _paused;
     };
 
 }

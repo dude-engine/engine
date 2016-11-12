@@ -2,41 +2,63 @@
 // Created by Jonathan Picques on 31/10/2016.
 //
 
+#include <string>
 #include <iostream>
-#include <thread>
-#include <chrono>
 
-#include <dude/core/timer.hpp>
+#include <dude/core/engine.hpp>
+#include <dude/plugin/manager.hpp>
+#include <dude/serialization/json_saver.hpp>
+
+class gameplay : public dude::manager {
+public:
+    virtual properties_t on_properties() const override {
+        return {
+                {"lives", 5},
+                {"hp",    2}
+        };
+    }
+
+    virtual void on_start() override {
+        _platform = get_engine()->add_manager("platform");
+    }
+
+    virtual void on_update() override {
+        if (get_engine()->get_timer().elapsed() > 1) {
+            get_property("lives") = _platform->get_property("speed").get<int>();
+            get_engine()->stop();
+        }
+    }
+private:
+    dude::manager *_platform;
+};
+
+class platform : public dude::manager {
+
+    virtual properties_t on_properties() const override {
+        return {
+                {"speed",     42},
+                {"direction", std::string{"right"}}
+        };
+    }
+
+    virtual void on_update() override {
+        get_property("speed") = get_property("speed").get<int>() + 1;
+    }
+
+public:
+    virtual void on_stop() override {
+        get_property("speed") = 0;
+    }
+
+};
 
 int main() {
-    dude::timer timer;
-    dude::timer::second_t dt;
-    dude::timer::second_t acc_update = 0;
-    dude::timer::second_t acc_update_frames = 0;
-    dude::timer::second_t acc_render = 0;
-    dude::timer::second_t acc_render_frames = 0;
-    dude::timer::second_t accumulator_total = 0;
-    while (true) {
-        timer.tick();
-        dt = timer.dt();
-        acc_update += dt;
-        acc_render += dt;
-        if (acc_update > 1. / 120.) {
-            acc_update_frames += 1;
-            acc_update = 0;
-        }
-        if (acc_render > 1. / 60.) {
-            acc_render_frames += 1;
-            acc_render = 0;
-        }
-        accumulator_total += dt;
-        if (accumulator_total > 1) {
-            break;
-        }
-        std::this_thread::sleep_for(std::chrono::milliseconds{1});
-    }
-    std::cout << std::endl;
-    std::cout << "updated " << acc_update_frames << " times in " << timer.elapsed() << " second(s)" << std::endl;
-    std::cout << "rendered " << acc_render_frames << " frames in " << timer.elapsed() << " second(s)" << std::endl;
+    dude::engine engine;
+    engine.get_plugin_factory().register_manager<gameplay>("gameplay");
+    engine.get_plugin_factory().register_manager<platform>("platform");
+    engine.add_manager("gameplay");
+    engine.run();
+    std::cout << "game ran for " << engine.get_timer().elapsed() << " second(s)" << std::endl;
+    std::cout << dude::json_saver().save(engine) << std::endl;
     return 0;
 }
