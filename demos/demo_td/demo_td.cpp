@@ -5,6 +5,7 @@
 #include <iostream>
 #include <thread>
 #include <chrono>
+#include <SDL2/SDL.h>
 
 #include <dude/core/timer.hpp>
 
