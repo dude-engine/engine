@@ -23,6 +23,7 @@ namespace dude {
         using scene_t = std::unique_ptr<dude::scene>;
         using manager_t = std::unique_ptr<dude::manager>;
         using managers_t = std::vector<manager_t>;
+        using managers_iterator_t = managers_t::const_iterator;
         using plugin_factory_t = dude::plugin_factory;
 
     public:
@@ -64,6 +65,7 @@ namespace dude {
         scene_t _scene;
         managers_t _managers;
         plugin_factory_t _plugin_factory;
+        managers_iterator_t _iterator;
 
     private:
         bool _stopped;
