@@ -68,8 +68,8 @@ namespace dude {
         managers_iterator_t _iterator;
 
     private:
-        bool _stopped;
-        bool _paused;
+        bool _stopped = false;
+        bool _paused = false;
     };
 
 }

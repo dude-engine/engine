@@ -12,7 +12,6 @@ namespace dude {
     }
 
     auto engine::run() -> void {
-        _stopped = false;
         while (!_stopped) {
             _timer.tick();
             _iterator = _managers.begin();
@@ -75,6 +74,7 @@ namespace dude {
     }
 
     auto engine::add_manager(std::string const &manager_name) -> dude::manager * {
+        assert(!_stopped);
         assert(!has_manager(manager_name));
         auto manager_ptr = std::move(_plugin_factory.make_manager(manager_name));
         auto manager = manager_ptr.get();
@@ -94,6 +94,7 @@ namespace dude {
     }
 
     auto engine::remove_manager(std::string const &manager_name) -> void {
+        assert(!_stopped);
         auto manager_iterator = dude::find_by_name(_managers, manager_name);
         assert(manager_iterator != _managers.end());
         auto const &manager_ptr = *manager_iterator;
