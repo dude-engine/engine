@@ -9,7 +9,14 @@
 
 #include <dude/core/timer.hpp>
 
-int main() {
+#if defined(_WIN32)
+    #define DUDE_MAIN WinMain
+#else
+    #define DUDE_MAIN main
+#endif
+
+auto DUDE_MAIN() -> int {
+    auto window = SDL_CreateWindow("demo_td", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 320, 240, SDL_WINDOW_SHOWN);
     dude::timer timer;
     dude::timer::second_t dt;
     dude::timer::second_t acc_update = 0;
@@ -36,6 +43,7 @@ int main() {
         }
         std::this_thread::sleep_for(std::chrono::milliseconds{1});
     }
+    SDL_DestroyWindow(window);
     std::cout << std::endl;
     std::cout << "updated " << acc_update_frames << " times in " << timer.elapsed() << " second(s)" << std::endl;
     std::cout << "rendered " << acc_render_frames << " frames in " << timer.elapsed() << " second(s)" << std::endl;
