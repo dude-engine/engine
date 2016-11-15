@@ -60,10 +60,12 @@ namespace dude {
         auto get_plugin_factory() -> plugin_factory_t &;
 
     private:
+        plugin_factory_t _plugin_factory;
+        managers_t _managers;
+
+    private:
         timer_t _timer;
         scene_t _scene;
-        managers_t _managers;
-        plugin_factory_t _plugin_factory;
 
     private:
         bool _stopped;

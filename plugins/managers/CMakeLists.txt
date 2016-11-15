@@ -1,6 +1,7 @@
 project(dude_plugins_managers)
 
 # Build plugins
+add_subdirectory(${PROJECT_SOURCE_DIR}/window)
 add_subdirectory(${PROJECT_SOURCE_DIR}/input)
 
 # Embed plugins in the engine library
