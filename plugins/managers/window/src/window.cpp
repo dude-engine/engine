@@ -10,22 +10,16 @@ namespace dude {
 
     window::~window() = default;
 
-    void window::on_start() {
+    auto window::on_start() -> void {
         _window = SDL_CreateWindow("window", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 320, 240, SDL_WINDOW_OPENGL);
         _renderer = SDL_CreateRenderer(_window, -1, 0);
     }
 
-    void window::on_update() {
+    auto window::on_update() -> void {
         SDL_RenderClear(_renderer);
-        SDL_Event e;
-        while (SDL_PollEvent(&e) == 1) {
-            if (e.type == SDL_QUIT) {
-                // get_engine()->stop();
-            }
-        }
     }
 
-    void window::on_stop() {
+    auto window::on_stop() -> void {
         SDL_DestroyRenderer(_renderer);
         SDL_DestroyWindow(_window);
     }

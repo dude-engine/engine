@@ -4,16 +4,19 @@
 
 #include <iostream>
 
+#include <dude/core/engine.hpp>
 #include <input/input.hpp>
 
 namespace dude {
 
-    input::input() {
-        std::cout << "input::input()" << std::endl;
-    }
-
-    input::~input() {
-        std::cout << "input::~input()" << std::endl;
+    auto input::on_update() -> void {
+        while(SDL_PollEvent(&_event) == 1) {
+            if (_event.type == SDL_KEYDOWN) {
+                std::cout << _event.key.keysym.scancode << std::endl;
+            } else if (_event.type == SDL_QUIT) {
+             get_engine()->stop();
+            }
+        }
     }
 
 }

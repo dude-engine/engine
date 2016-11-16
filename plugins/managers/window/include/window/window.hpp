@@ -16,9 +16,9 @@ namespace dude {
         virtual ~window();
 
     public:
-        virtual void on_start() override final;
-        virtual void on_update() override final;
-        virtual void on_stop() override final;
+        virtual auto on_start() -> void override final;
+        virtual auto on_update() -> void override final;
+        virtual auto on_stop() -> void override final;
 
     private:
         SDL_Window *_window;

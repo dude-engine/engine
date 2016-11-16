@@ -8,7 +8,7 @@
 class gameplay : public dude::manager {
 public:
     virtual void on_update() override {
-        if (get_engine()->get_timer().elapsed() > 1) get_engine()->stop();
+        if (get_engine()->get_timer().elapsed() > 10.f) get_engine()->stop();
     }
 };
 
@@ -18,6 +18,7 @@ int main() {
     engine.get_plugin_factory().register_manager("input", "plugins/managers/input/libmanager_input");
     engine.get_plugin_factory().register_manager<gameplay>("gameplay");
     engine.add_manager("window");
+    engine.add_manager("input");
     engine.add_manager("gameplay");
     engine.run();
     return 0;
