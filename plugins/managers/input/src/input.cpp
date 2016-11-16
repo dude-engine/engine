@@ -4,6 +4,8 @@
 
 #include <iostream>
 
+#include <SDL2/SDL.h>
+
 #include <dude/core/engine.hpp>
 #include <input/input.hpp>
 

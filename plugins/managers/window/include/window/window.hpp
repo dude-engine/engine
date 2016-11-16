@@ -4,7 +4,7 @@
 
 #pragma once
 
-#include <SDL.h>
+#include <SDL2/SDL.h>
 
 #include <dude/plugin/manager.hpp>
 
@@ -12,8 +12,8 @@ namespace dude {
 
     class window final : public manager {
     public:
-        window();
-        virtual ~window();
+        window() = default;
+        virtual ~window() = default;
 
     public:
         virtual auto on_start() -> void override final;
