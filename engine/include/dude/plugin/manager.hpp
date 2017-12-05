@@ -18,9 +18,9 @@ namespace dude {
 
     public:
         manager() = default;
-        virtual ~manager() = default;
+        ~manager() override = default;
 
-    private:
+    public:
         manager(manager const &) = delete;
         manager(manager &&) = delete;
         auto operator=(manager const &) -> void = delete;

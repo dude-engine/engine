@@ -30,7 +30,7 @@ namespace dude {
         engine();
         ~engine() = default;
 
-    private:
+    public:
         engine(engine const &) = delete;
         engine(engine &&) = delete;
         auto operator=(engine const &) -> void = delete;
@@ -70,8 +70,8 @@ namespace dude {
         managers_t _managers;
 
     private:
-        bool _stopped;
-        bool _paused;
+        bool _stopped = false;
+        bool _paused = false;
     };
 
 }

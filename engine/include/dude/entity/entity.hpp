@@ -25,7 +25,7 @@ namespace dude {
         entity() = default;
         ~entity() = default;
 
-    private:
+    public:
         entity(entity const &) = delete;
         entity(entity &&) = delete;
         auto operator=(entity const &) -> void = delete;
@@ -63,10 +63,10 @@ namespace dude {
         auto set_enabled(bool enabled) -> void;
 
     private:
-        dude::scene *_scene;
-        dude::entity *_parent;
+        dude::scene *_scene = nullptr;
+        dude::entity *_parent = nullptr;
         name_t _name;
-        enabled_t _enabled;
+        enabled_t _enabled = false;
         entities_t _children;
         behaviors_t _behaviors;
     };

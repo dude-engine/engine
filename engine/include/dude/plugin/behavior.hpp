@@ -20,9 +20,9 @@ namespace dude {
 
     public:
         behavior() = default;
-        virtual ~behavior() = default;
+        ~behavior() override = default;
 
-    private:
+    public:
         behavior(behavior const &) = delete;
         behavior(behavior &&) = delete;
         auto operator=(behavior const &) -> void = delete;
@@ -49,7 +49,7 @@ namespace dude {
         auto configure_dependencies() -> void;
 
     private:
-        dude::entity *_entity;
+        dude::entity *_entity = nullptr;
         dependencies_t _manager_dependencies;
         dependencies_t _dependencies;
     };

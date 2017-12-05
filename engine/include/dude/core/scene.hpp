@@ -23,7 +23,7 @@ namespace dude {
         scene() = default;
         ~scene() = default;
 
-    private:
+    public:
         scene(scene const &) = delete;
         scene(scene &&) = delete;
         auto operator=(scene const &) -> void = delete;
@@ -45,7 +45,7 @@ namespace dude {
         auto remove_entity(std::string const &entity_name) -> void;
 
     private:
-        dude::engine *_engine;
+        dude::engine *_engine = nullptr;
         name_t _name;
         entities_t _entities;
     };

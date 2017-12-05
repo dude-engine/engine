@@ -34,7 +34,7 @@ namespace dude {
         plugin_factory();
         ~plugin_factory() = default;
 
-    private:
+    public:
         plugin_factory(plugin_factory const &) = delete;
         plugin_factory(plugin_factory &&) = delete;
         auto operator=(plugin_factory const &) -> void = delete;

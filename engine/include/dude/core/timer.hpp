@@ -22,7 +22,7 @@ namespace dude {
         timer() = default;
         ~timer() = default;
 
-    private:
+    public:
         timer(timer const &) = delete;
         timer(timer &&) = delete;
         auto operator=(timer const &) -> void = delete;
@@ -44,7 +44,7 @@ namespace dude {
         second_t _frames = 0;
         second_t _fps = 0;
         second_t _dt = 0;
-        bool _started;
+        bool _started = false;
     };
 
 }

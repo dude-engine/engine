@@ -13,10 +13,10 @@ namespace dude {
         using library_t = void *;
 
     public:
-        library(std::string const &path);
+        explicit library(std::string const &path);
         ~library();
 
-    private:
+    public:
         library(library const &) = delete;
         library(library &&) = delete;
         auto operator=(library const &) -> void = delete;

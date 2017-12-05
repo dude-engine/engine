@@ -25,7 +25,7 @@ namespace dude {
         plugin() = default;
         virtual ~plugin() = default;
 
-    private:
+    public:
         plugin(plugin const &) = delete;
         plugin(plugin &&) = delete;
         auto operator=(plugin const &) -> void = delete;
@@ -57,7 +57,7 @@ namespace dude {
 
     private:
         name_t _name;
-        dude::engine *_engine;
+        dude::engine *_engine = nullptr;
         enabled_t _enabled = true;
         properties_t _properties;
     };

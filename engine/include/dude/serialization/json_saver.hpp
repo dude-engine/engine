@@ -27,7 +27,7 @@ namespace dude {
         json_saver() = default;
         ~json_saver() = default;
 
-    private:
+    public:
         json_saver(json_saver const &) = delete;
         json_saver(json_saver &&) = delete;
         auto operator=(json_saver const &) -> void = delete;
