@@ -24,9 +24,6 @@ target_include_directories(${DUDE_ENGINE_TARGET} PUBLIC ${DUDE_ENGINE_HEADER_DIR
 target_include_directories(${DUDE_ENGINE_TARGET} PUBLIC ${PROJECT_SOURCE_DIR}/vendors)
 target_include_directories(${DUDE_ENGINE_TARGET} PUBLIC ${PROJECT_SOURCE_DIR}/plugins)
 
-# Include platform specifics
-include(${PROJECT_SOURCE_DIR}/cmake/CMakePlatform.cmake)
-
 # Dude plugins
 add_subdirectory(${PROJECT_SOURCE_DIR}/plugins)
 
@@ -35,6 +32,9 @@ add_subdirectory(${PROJECT_SOURCE_DIR}/tests)
 
 # Dude demos
 add_subdirectory(${PROJECT_SOURCE_DIR}/demos)
+
+# Include platform specifics
+include(${PROJECT_SOURCE_DIR}/cmake/CMakePlatform.cmake)
 
 # Embed plugins in the engine library
 if (DUDE_EMBED_PLUGINS)
