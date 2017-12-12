@@ -8,9 +8,9 @@
 #include <glm/vec3.hpp>
 #include <glm/gtc/quaternion.hpp>
 
-namespace gravity { class entity; }
+namespace dude { class entity; }
 
-namespace gravity {
+namespace dude {
 
     class transform final {
     public:
@@ -22,9 +22,19 @@ namespace gravity {
         transform(transform &&) = delete;
         auto operator=(transform const &) -> void = delete;
 
+    public:
+        auto set_entity(dude::entity *entity) -> void;
+        auto get_entity() -> dude::entity *;
+        auto get_entity() const -> dude::entity const *;
+
+    public:
+        auto set_parent(dude::transform *parent) -> void;
+        auto get_parent() -> dude::transform *;
+        auto get_parent() const -> dude::transform const *;
+
     private:
-        entity *_entity = nullptr;
-        transform *_parent = nullptr;
+        dude::entity *_entity = nullptr;
+        dude::transform *_parent = nullptr;
 
     private:
         glm::vec3 _scale = {};
