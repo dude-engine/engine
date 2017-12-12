@@ -7,7 +7,7 @@
 
 class gameplay : public dude::manager {
 public:
-    virtual void on_update() override {
+    void on_update() override {
         if (get_engine()->get_timer().elapsed() > 10.f) get_engine()->stop();
     }
 };
