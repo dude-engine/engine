@@ -11,10 +11,10 @@ namespace dude {
     class projectile final : public behavior {
     public:
         projectile();
-        virtual ~projectile();
+        ~projectile() override;
 
     public:
-        virtual auto on_properties() const -> properties_t override final;
+        auto on_properties() const -> properties_t final;
     };
 
 }

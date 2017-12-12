@@ -13,10 +13,10 @@ namespace dude {
     class input final : public manager {
     public:
         input() = default;
-        virtual ~input() = default;
+        ~input() override = default;
 
     public:
-        virtual auto on_update() -> void override final;
+        auto on_update() -> void final;
 
     private:
         SDL_Event _event;

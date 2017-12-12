@@ -13,16 +13,16 @@ namespace dude {
     class window final : public manager {
     public:
         window() = default;
-        virtual ~window() = default;
+        ~window() override = default;
 
     public:
-        virtual auto on_start() -> void override final;
-        virtual auto on_update() -> void override final;
-        virtual auto on_stop() -> void override final;
+        auto on_start() -> void final;
+        auto on_update() -> void final;
+        auto on_stop() -> void final;
 
     private:
-        SDL_Window *_window;
-        SDL_Renderer *_renderer;
+        SDL_Window *_window = nullptr;
+        SDL_Renderer *_renderer = nullptr;
     };
 
 }
