@@ -4,11 +4,13 @@
 
 #include <dude/core/engine.hpp>
 #include <dude/utility/find.hpp>
+#include <dude/entity/transform.hpp>
 
 namespace dude {
 
     engine::engine() : _scene(std::make_unique<dude::scene>()) {
         _scene->set_engine(this);
+        _plugin_factory.register_behavior<dude::transform>("transform");
     }
 
     auto engine::run() -> void {
