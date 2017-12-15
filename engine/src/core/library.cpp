@@ -37,21 +37,21 @@ namespace dude {
 
     library::~library() {
         #if defined(DUDE_PLATFORM_WINDOWS)
-            FreeLibrary(reinterpret_cast<HMODULE>(_library));
+            assert(FreeLibrary(reinterpret_cast<HMODULE>(_library)));
         #else
-            dlclose(_library);
+            assert(dlclose(_library) == 0);
         #endif
     }
 
     auto library::_get_symbol(std::string const &symbol_name) const -> void * {
-        auto void_symbol = static_cast<void *>(nullptr);
+        void *symbol = nullptr;
         #if defined(DUDE_PLATFORM_WINDOWS)
-            void_symbol = reinterpret_cast<void *>(GetProcAddress(reinterpret_cast<HMODULE>(_library), symbol_name.c_str()));
+            symbol = reinterpret_cast<void *>(GetProcAddress(reinterpret_cast<HMODULE>(_library), symbol_name.c_str()));
         #else
-            void_symbol = reinterpret_cast<void *>(dlsym(_library, symbol_name.c_str()));
+            symbol = reinterpret_cast<void *>(dlsym(_library, symbol_name.c_str()));
         #endif
-        assert(void_symbol != nullptr);
-        return void_symbol;
+        assert(symbol != nullptr);
+        return symbol;
     }
 
 }
