@@ -6,6 +6,10 @@
 
 namespace dude {
 
+    plugin::~plugin() { // NOLINT
+
+    }
+
     auto plugin::on_enable() -> void {
 
     }

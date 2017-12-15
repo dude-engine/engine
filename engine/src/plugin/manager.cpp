@@ -6,6 +6,10 @@
 
 namespace dude {
 
+    manager::~manager() { // NOLINT
+
+    }
+
     auto manager::on_dependencies() -> dependencies_t {
         return dependencies_t();
     }

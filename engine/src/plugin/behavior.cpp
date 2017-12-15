@@ -6,6 +6,10 @@
 
 namespace dude {
 
+    behavior::~behavior() { // NOLINT
+
+    }
+
     auto behavior::on_manager_dependencies() -> dependencies_t {
         return dependencies_t();
     }

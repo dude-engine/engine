@@ -20,7 +20,7 @@ namespace dude {
 
     public:
         behavior() = default;
-        ~behavior() override = default;
+        ~behavior() override = 0;
 
     public:
         behavior(behavior const &) = delete;
