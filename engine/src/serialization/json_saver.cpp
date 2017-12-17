@@ -7,7 +7,7 @@
 namespace dude {
 
     auto json_saver::save(const engine &value) const -> std::string {
-        buffer_t buffer;
+        /*buffer_t buffer;
         writer_t writer(buffer);
 
         writer.StartObject();
@@ -22,11 +22,11 @@ namespace dude {
         writer.Key("scene");
         save(*value.get_scene(), writer, buffer);
         writer.EndObject();
-        return std::string(buffer.GetString());
+        return std::string(buffer.GetString());*/
     }
 
     auto json_saver::save(scene const &value, writer_t &writer, buffer_t &buffer) const -> void {
-        writer.StartObject();
+        /*writer.StartObject();
         writer.Key("type");
         writer.String("scene");
         writer.Key("entities");
@@ -35,11 +35,11 @@ namespace dude {
             save(*entity.get(), writer, buffer);
         }
         writer.EndArray();
-        writer.EndObject();
+        writer.EndObject();*/
     }
 
     auto json_saver::save(const entity &value, writer_t &writer, buffer_t &buffer) const -> void {
-        writer.StartObject();
+        /*writer.StartObject();
         writer.Key("type");
         writer.String("entity");
         for (auto const &child : value.get_children()) {
@@ -48,11 +48,11 @@ namespace dude {
         for (auto const &behavior : value.get_behaviors()) {
             save(*behavior.get(), writer, buffer);
         }
-        writer.EndObject();
+        writer.EndObject();*/
     }
 
     void json_saver::save(manager const &value, writer_t &writer, buffer_t &buffer) const {
-        writer.StartObject();
+        /*writer.StartObject();
         writer.Key("type");
         writer.String("manager");
         writer.Key("name");
@@ -64,11 +64,11 @@ namespace dude {
             save(p.second, writer, buffer);
         }
         writer.EndObject();
-        writer.EndObject();
+        writer.EndObject();*/
     }
 
     auto json_saver::save(behavior const &value, writer_t &writer, buffer_t &buffer) const -> void {
-        writer.StartObject();
+        /*writer.StartObject();
         writer.Key("type");
         writer.String("behavior");
         writer.Key("name");
@@ -80,12 +80,12 @@ namespace dude {
             save(p.second, writer, buffer);
         }
         writer.EndObject();
-        writer.EndObject();
+        writer.EndObject();*/
     }
 
     auto
     json_saver::save(property const &value, json_saver::writer_t &writer, json_saver::buffer_t &buffer) const -> void {
-        if (value.is<int>()) {
+        /*if (value.is<int>()) {
             writer.Int(value.get<int>());
         } else if (value.is<float>()) {
             writer.Double(value.get<float>());
@@ -95,7 +95,7 @@ namespace dude {
             writer.String(value.get<std::string>().c_str());
         } else {
             writer.Null();
-        }
+        }*/
     }
 
 }

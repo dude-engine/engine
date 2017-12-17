@@ -1,3 +1,0 @@
-project(dude_test_plugin_factory)
-
-dude_add_test(test_plugin_factory)

@@ -12,7 +12,7 @@
 
 namespace dude {
 
-    plugin_factory::plugin_factory() {
+    plugin_factory::plugin_factory() { // NOLINT
         #if defined(DUDE_EMBED_PLUGINS)
             register_manager<dude::input>("input");
             register_manager<dude::window>("window");
@@ -50,17 +50,13 @@ namespace dude {
 
     auto plugin_factory::register_manager(std::string const &manager_name, manager_creator_pointer_t manager_creator) -> void {
         _manager_creators.emplace(manager_name, [manager_name, manager_creator] () -> manager * {
-            auto manager = manager_creator();
-            manager->set_name(manager_name);
-            return manager;
+            return manager_creator();
         });
     }
 
     auto plugin_factory::register_behavior(std::string const &behavior_name, behavior_creator_pointer_t behavior_creator) -> void {
         _behavior_creators.emplace(behavior_name, [behavior_name, behavior_creator] () -> behavior * {
-            auto behavior = behavior_creator();
-            behavior->set_name(behavior_name);
-            return behavior;
+            return behavior_creator();
         });
     }
 

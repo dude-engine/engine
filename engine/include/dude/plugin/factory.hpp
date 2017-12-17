@@ -11,9 +11,9 @@
 #include <functional>
 #include <unordered_map>
 
-#include <dude/core/library.hpp>
 #include <dude/plugin/manager.hpp>
 #include <dude/plugin/behavior.hpp>
+#include <dude/utility/library.hpp>
 
 namespace dude {
 

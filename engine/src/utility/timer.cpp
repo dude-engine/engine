@@ -2,11 +2,11 @@
 // Created by Jonathan Picques on 11/11/2016.
 //
 
-#include <dude/core/timer.hpp>
+#include <dude/utility/timer.hpp>
 
 namespace dude {
 
-    void timer::tick() {
+    auto timer::tick() -> void {
         if (!_started) {
             _start = chrono_clock_t::now();
             _previous = chrono_clock_t::now();

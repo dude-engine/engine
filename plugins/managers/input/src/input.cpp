@@ -16,7 +16,7 @@ namespace dude {
             if (_event.type == SDL_KEYDOWN) {
                 std::cout << _event.key.keysym.scancode << std::endl;
             } else if (_event.type == SDL_QUIT) {
-             get_engine()->stop();
+                // get_engine()->stop();
             }
         }
     }

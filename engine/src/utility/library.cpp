@@ -5,7 +5,7 @@
 #include <cassert>
 
 #include <dude/system.hpp>
-#include <dude/core/library.hpp>
+#include <dude/utility/library.hpp>
 
 #if defined(DUDE_PLATFORM_WINDOWS)
     #include <windows.h>
