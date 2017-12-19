@@ -6,7 +6,7 @@ option(DUDE_EMBED_PLUGINS "Embed the plugins in the engine library instead of co
 
 # Dude engine target
 set(DUDE_ENGINE_TARGET engine)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17")
 
 # Dude engine variables
 set(DUDE_ENGINE_SOURCE_DIR "${PROJECT_SOURCE_DIR}/engine/src")
@@ -28,13 +28,13 @@ target_include_directories(${DUDE_ENGINE_TARGET} PUBLIC ${PROJECT_SOURCE_DIR}/pl
 add_subdirectory(${PROJECT_SOURCE_DIR}/plugins)
 
 # Dude tests
-add_subdirectory(${PROJECT_SOURCE_DIR}/tests)
+add_subdirectory(${PROJECT_SOURCE_DIR}/assets/tests)
 
 # Dude demos
-add_subdirectory(${PROJECT_SOURCE_DIR}/demos)
+add_subdirectory(${PROJECT_SOURCE_DIR}/assets/demos)
 
 # Include platform specifics
-include(${PROJECT_SOURCE_DIR}/cmake/CMakePlatform.cmake)
+include(${PROJECT_SOURCE_DIR}/assets/cmake/CMakePlatform.cmake)
 
 # Embed plugins in the engine library
 if (DUDE_EMBED_PLUGINS)

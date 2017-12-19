@@ -6,7 +6,7 @@ set(BUILD_GMOCK OFF)
 add_subdirectory(googletest)
 
 # Include test helpers
-include(${CMAKE_SOURCE_DIR}/cmake/CMakeTest.cmake)
+include(${CMAKE_SOURCE_DIR}/assets/cmake/CMakeTest.cmake)
 
 # Build tests
 add_subdirectory(${PROJECT_SOURCE_DIR}/test_engine)
