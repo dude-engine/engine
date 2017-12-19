@@ -14,9 +14,9 @@ namespace dude {
 
     plugin_factory::plugin_factory() { // NOLINT
         #if defined(DUDE_EMBED_PLUGINS)
-            register_manager<dude::input>("input");
-            register_manager<dude::window>("window");
-            register_behavior<dude::projectile>("projectile");
+            register_manager<input>("input");
+            register_manager<window>("window");
+            register_behavior<projectile>("projectile");
         #endif
     }
 

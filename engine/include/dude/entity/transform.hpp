@@ -13,7 +13,7 @@ namespace dude { class entity; }
 
 namespace dude {
 
-    class transform final : public dude::behavior {
+    class transform final : public behavior {
     public:
         enum class coord_space { local, world };
     public:
@@ -32,8 +32,8 @@ namespace dude {
 
     public:
         auto set_parent(dude::transform *parent) -> void;
-        auto get_parent() -> dude::transform *;
-        auto get_parent() const -> dude::transform const *;
+        auto get_parent() -> transform *;
+        auto get_parent() const -> transform const *;
 
     public:
         auto get_scale(dude::transform::coord_space const &coord_space) const -> scale_t;

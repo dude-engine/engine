@@ -11,11 +11,11 @@ namespace dude {
         _parent = parent;
     }
 
-    auto transform::get_parent() -> dude::transform * {
+    auto transform::get_parent() -> transform * {
         return _parent;
     }
 
-    auto transform::get_parent() const -> dude::transform const * {
+    auto transform::get_parent() const -> transform const * {
         return _parent;
     }
 

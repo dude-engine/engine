@@ -28,7 +28,7 @@ namespace dude {
         auto operator=(scene const &) -> scene & = delete;
 
     public:
-        auto get_engine() const -> dude::engine *;
+        auto get_engine() const -> engine *;
         auto set_engine(dude::engine *engine) -> void;
 
     public:

@@ -10,7 +10,7 @@ namespace dude {
 
     }
 
-    auto behavior::get_entity() const -> dude::entity * {
+    auto behavior::get_entity() const -> entity * {
         return nullptr;
     }
 

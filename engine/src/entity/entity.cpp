@@ -6,7 +6,7 @@
 
 namespace dude {
 
-    auto entity::get_scene() const -> dude::scene * {
+    auto entity::get_scene() const -> scene * {
         return nullptr;
     }
 

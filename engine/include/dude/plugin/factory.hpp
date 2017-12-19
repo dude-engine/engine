@@ -21,13 +21,13 @@ namespace dude {
     public:
         using manager_creator_libraries_t = std::unordered_map<std::string, std::unique_ptr<library>>;
         using manager_creator_pointer_t = dude::manager *(*)();
-        using manager_creator_func_t = std::function<dude::manager *()>;
+        using manager_creator_func_t = std::function<manager *()>;
         using manager_creators_t = std::unordered_map<std::string, manager_creator_func_t>;
 
     public:
         using behavior_creator_libraries_t = std::unordered_map<std::string, std::unique_ptr<library>>;
         using behavior_creator_pointer_t = dude::behavior *(*)();
-        using behavior_creator_func_t = std::function<dude::behavior *()>;
+        using behavior_creator_func_t = std::function<behavior *()>;
         using behavior_creators_t = std::unordered_map<std::string, behavior_creator_func_t>;
 
     public:

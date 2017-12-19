@@ -10,7 +10,7 @@
 
 namespace dude {
 
-    class window final : public dude::manager {
+    class window final : public manager {
     public:
         window() = default;
         ~window() override = default;

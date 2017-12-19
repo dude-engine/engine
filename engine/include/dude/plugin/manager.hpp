@@ -14,7 +14,7 @@ namespace dude { class engine; }
 
 namespace dude {
 
-    class DUDE_API manager : public dude::plugin {
+    class DUDE_API manager : public plugin {
 
     public:
         manager() = default;
@@ -26,7 +26,7 @@ namespace dude {
         auto operator=(manager const &) -> manager & = delete;
 
     public:
-        auto get_engine() const -> dude::engine *;
+        auto get_engine() const -> engine *;
         auto set_engine(dude::engine *engine) -> void;
 
     public:

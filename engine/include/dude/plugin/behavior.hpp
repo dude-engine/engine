@@ -14,7 +14,7 @@ namespace dude { class entity; }
 
 namespace dude {
 
-    class DUDE_API behavior : public dude::plugin {
+    class DUDE_API behavior : public plugin {
     public:
         behavior() = default;
         ~behavior() override = 0;
@@ -25,7 +25,7 @@ namespace dude {
         auto operator=(behavior const &) -> behavior & = delete;
 
     public:
-        auto get_entity() const -> dude::entity *;
+        auto get_entity() const -> entity *;
         auto set_entity(dude::entity *entity) -> void;
 
     public:

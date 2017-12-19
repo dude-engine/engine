@@ -10,7 +10,7 @@ namespace dude {
 
     }
 
-    auto manager::get_engine() const -> dude::engine * {
+    auto manager::get_engine() const -> engine * {
         return nullptr;
     }
 

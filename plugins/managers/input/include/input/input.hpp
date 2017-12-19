@@ -10,7 +10,7 @@
 
 namespace dude {
 
-    class input final : public dude::manager {
+    class input final : public manager {
     public:
         input() = default;
         ~input() override = default;

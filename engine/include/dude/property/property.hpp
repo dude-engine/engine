@@ -26,7 +26,7 @@ namespace dude {
         };
 
         template<typename T>
-        class property_data : public dude::impl::property_base, std::tuple<T> {
+        class property_data : public impl::property_base, std::tuple<T> {
         public:
             template<typename ...Args>
             property_data(Args &&...args) : std::tuple<T>(std::forward<Args>(args)...) {
@@ -168,12 +168,12 @@ namespace dude {
 
     template<typename T>
     auto property::safe_get() -> T & {
-        return dynamic_cast<dude::impl::property_data<T> &>(*_base).get();
+        return dynamic_cast<impl::property_data<T> &>(*_base).get();
     }
 
     template<typename T>
     auto property::safe_get() const  -> T const & {
-        return dynamic_cast<dude::impl::property_data<T> const &>(*_base).get();
+        return dynamic_cast<impl::property_data<T> const &>(*_base).get();
     }
 
 }

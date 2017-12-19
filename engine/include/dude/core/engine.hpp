@@ -14,8 +14,8 @@ namespace dude {
 
     class engine final {
     public:
-        using scene_t = std::unique_ptr<dude::scene>;
-        using manager_t = std::unique_ptr<dude::manager>;
+        using scene_t = std::unique_ptr<scene>;
+        using manager_t = std::unique_ptr<manager>;
         using managers_t = std::vector<manager_t>;
 
     public:
@@ -35,7 +35,7 @@ namespace dude {
         auto stop() -> void;
 
     public:
-        auto get_scene() const -> dude::scene *;
+        auto get_scene() const -> scene *;
         auto get_managers() const -> managers_t const &;
     };
 

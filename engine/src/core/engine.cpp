@@ -26,7 +26,7 @@ namespace dude {
 
     }
 
-    auto engine::get_scene() const -> dude::scene * {
+    auto engine::get_scene() const -> scene * {
         return nullptr;
     }
 
