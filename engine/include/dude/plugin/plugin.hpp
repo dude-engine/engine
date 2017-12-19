@@ -20,7 +20,7 @@ namespace dude {
 
     public:
         plugin() = default;
-        virtual ~plugin() = 0;
+        virtual ~plugin() noexcept = 0;
 
     public:
         plugin(plugin const &) = delete;

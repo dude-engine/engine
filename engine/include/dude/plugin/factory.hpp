@@ -32,7 +32,7 @@ namespace dude {
 
     public:
         plugin_factory();
-        ~plugin_factory() = default;
+        ~plugin_factory() noexcept = default;
 
     public:
         plugin_factory(plugin_factory const &) = delete;

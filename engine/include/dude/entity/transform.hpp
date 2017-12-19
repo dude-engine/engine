@@ -23,7 +23,7 @@ namespace dude {
 
     public:
         transform() = default;
-        ~transform() final = default;
+        ~transform() noexcept final = default;
 
     public:
         transform(transform const &) = delete;

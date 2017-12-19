@@ -18,7 +18,7 @@ namespace dude {
 
     public:
         manager() = default;
-        ~manager() override = 0;
+        ~manager() noexcept override = 0;
 
     public:
         manager(manager const &) = delete;

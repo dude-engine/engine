@@ -6,7 +6,7 @@
 
 namespace dude {
 
-    plugin::~plugin() { // NOLINT
+    plugin::~plugin() noexcept { // NOLINT
 
     }
 

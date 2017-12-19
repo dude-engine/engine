@@ -25,7 +25,7 @@ namespace dude {
 
     public:
         json_saver() = default;
-        ~json_saver() = default;
+        ~json_saver() noexcept = default;
 
     public:
         json_saver(json_saver const &) = delete;

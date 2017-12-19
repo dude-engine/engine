@@ -20,7 +20,7 @@ namespace dude {
 
     public:
         scene() = default;
-        ~scene() = default;
+        ~scene() noexcept = default;
 
     public:
         scene(scene const &) = delete;

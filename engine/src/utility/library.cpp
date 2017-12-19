@@ -35,7 +35,7 @@ namespace dude {
         assert(_library != nullptr);
     }
 
-    library::~library() {
+    library::~library() noexcept {
         #if defined(DUDE_PLATFORM_WINDOWS)
             assert(FreeLibrary(reinterpret_cast<HMODULE>(_library)));
         #else

@@ -18,7 +18,7 @@ namespace dude {
         class property_base {
         public:
             property_base() = default;
-            virtual ~property_base() = default;
+            virtual ~property_base() noexcept = default;
 
         public:
             virtual auto is(std::type_info const &type_info) const -> bool = 0;
@@ -36,7 +36,7 @@ namespace dude {
                               std::is_same<T, std::string>::value,
                               "properties can only be of type int, float, double or string");
             };
-            ~property_data() = default;
+            ~property_data() noexcept = default;
 
         public:
             auto get() -> T &;
@@ -66,7 +66,7 @@ namespace dude {
         property() = default;
         property(property const &p);
         property(property &&p);
-        ~property();
+        ~property() noexcept;
 
     public:
         auto operator=(property &p) -> property &;

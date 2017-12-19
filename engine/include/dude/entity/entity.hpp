@@ -20,7 +20,7 @@ namespace dude {
 
     public:
         entity() = default;
-        ~entity() = default;
+        ~entity() noexcept = default;
 
     public:
         entity(entity const &) = delete;

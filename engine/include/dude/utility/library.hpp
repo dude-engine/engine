@@ -14,7 +14,7 @@ namespace dude {
 
     public:
         explicit library(std::string const &path);
-        ~library();
+        ~library() noexcept;
 
     public:
         library(library const &) = delete;

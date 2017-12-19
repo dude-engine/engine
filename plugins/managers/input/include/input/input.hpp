@@ -13,7 +13,7 @@ namespace dude {
     class input final : public manager {
     public:
         input() = default;
-        ~input() override = default;
+        ~input() noexcept override = default;
 
     public:
         auto on_update() -> void final;

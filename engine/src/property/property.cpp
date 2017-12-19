@@ -14,7 +14,7 @@ namespace dude {
         p._base = nullptr;
     }
 
-    property::~property() {
+    property::~property() noexcept {
         delete _base;
     }
 

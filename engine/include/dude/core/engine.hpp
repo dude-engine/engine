@@ -20,7 +20,7 @@ namespace dude {
 
     public:
         engine() = default;
-        ~engine() = default;
+        ~engine() noexcept = default;
 
     public:
         engine(engine const &) = delete;

@@ -17,7 +17,7 @@ namespace dude {
     class DUDE_API behavior : public plugin {
     public:
         behavior() = default;
-        ~behavior() override = 0;
+        ~behavior() noexcept override = 0;
 
     public:
         behavior(behavior const &) = delete;

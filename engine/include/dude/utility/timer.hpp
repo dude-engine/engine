@@ -20,7 +20,7 @@ namespace dude {
 
     public:
         timer() = default;
-        ~timer() = default;
+        ~timer() noexcept = default;
 
     public:
         timer(timer const &) = delete;
