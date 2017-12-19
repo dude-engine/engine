@@ -6,7 +6,7 @@ option(DUDE_EMBED_PLUGINS "Embed the plugins in the engine library instead of co
 
 # Dude engine target
 set(DUDE_ENGINE_TARGET engine)
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++17")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++14")
 
 # Dude engine variables
 set(DUDE_ENGINE_SOURCE_DIR "${PROJECT_SOURCE_DIR}/engine/src")

@@ -24,6 +24,7 @@ namespace dude {
         manager(manager const &) = delete;
         manager(manager &&) = delete;
         auto operator=(manager const &) -> manager & = delete;
+        auto operator=(manager &&) noexcept -> manager & = delete;
 
     public:
         auto get_engine() const -> engine *;

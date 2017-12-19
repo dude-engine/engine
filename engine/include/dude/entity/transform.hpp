@@ -29,6 +29,7 @@ namespace dude {
         transform(transform const &) = delete;
         transform(transform &&) = delete;
         auto operator=(transform const &) -> transform & = delete;
+        auto operator=(transform &&) noexcept -> transform & = delete;
 
     public:
         auto set_parent(dude::transform *parent) -> void;

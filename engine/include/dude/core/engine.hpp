@@ -26,6 +26,7 @@ namespace dude {
         engine(engine const &) = delete;
         engine(engine &&) = delete;
         auto operator=(engine const &) -> engine & = delete;
+        auto operator=(engine &&) noexcept -> engine & = delete;
 
     public:
         auto start() -> void;

@@ -31,6 +31,7 @@ namespace dude {
         json_saver(json_saver const &) = delete;
         json_saver(json_saver &&) = delete;
         auto operator=(json_saver const &) -> json_saver & = delete;
+        auto operator=(json_saver &&) noexcept -> json_saver & = delete;
 
     public:
         auto save(dude::engine const &value) const -> std::string;

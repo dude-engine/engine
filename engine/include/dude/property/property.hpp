@@ -65,11 +65,12 @@ namespace dude {
     public:
         property() = default;
         property(property const &p);
-        property(property &&p);
+        property(property &&p) noexcept;
         ~property() noexcept;
 
     public:
-        auto operator=(property &p) -> property &;
+        auto operator=(property &p) -> property &; // NOLINT
+        auto operator=(property &&) noexcept -> property & = delete;
 
     public:
         template<typename T> auto is() const -> bool;

@@ -38,6 +38,7 @@ namespace dude {
         plugin_factory(plugin_factory const &) = delete;
         plugin_factory(plugin_factory &&) = delete;
         auto operator=(plugin_factory const &) -> plugin_factory & = delete;
+        auto operator=(plugin_factory &&) noexcept -> plugin_factory & = delete;
 
     public:
         template<typename T> auto register_manager(std::string const &manager_name) -> void;

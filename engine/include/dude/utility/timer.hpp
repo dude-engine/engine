@@ -26,6 +26,7 @@ namespace dude {
         timer(timer const &) = delete;
         timer(timer &&) = delete;
         auto operator=(timer const &) -> timer & = delete;
+        auto operator=(timer &&) noexcept -> timer & = delete;
 
     public:
         auto tick() -> void;

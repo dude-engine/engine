@@ -11,7 +11,7 @@ namespace dude {
     class projectile final : public behavior {
     public:
         projectile();
-        ~projectile() noexcept override;
+        ~projectile() noexcept final;
 
     public:
         auto on_properties() const -> properties_t final;

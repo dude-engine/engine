@@ -23,6 +23,7 @@ namespace dude {
         behavior(behavior const &) = delete;
         behavior(behavior &&) = delete;
         auto operator=(behavior const &) -> behavior & = delete;
+        auto operator=(behavior &&) noexcept -> behavior & = delete;
 
     public:
         auto get_entity() const -> entity *;

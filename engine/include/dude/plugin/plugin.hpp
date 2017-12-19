@@ -26,6 +26,7 @@ namespace dude {
         plugin(plugin const &) = delete;
         plugin(plugin &&) = delete;
         auto operator=(plugin const &) -> plugin & = delete;
+        auto operator=(plugin &&) noexcept -> plugin & = delete;
 
     public:
         virtual auto on_dependencies() const -> dependencies_t;

@@ -10,7 +10,7 @@ namespace dude {
 
     }
 
-    property::property(property &&p) : _base{p._base} {
+    property::property(property &&p) noexcept : _base{p._base} {
         p._base = nullptr;
     }
 

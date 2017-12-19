@@ -20,6 +20,7 @@ namespace dude {
         library(library const &) = delete;
         library(library &&) = delete;
         auto operator=(library const &) -> library & = delete;
+        auto operator=(library &&) noexcept -> library & = delete;
 
     public:
         template<typename T> auto get_symbol(std::string const &symbol_name) const -> T;

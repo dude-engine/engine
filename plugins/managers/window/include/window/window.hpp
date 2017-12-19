@@ -13,7 +13,7 @@ namespace dude {
     class window final : public manager {
     public:
         window() = default;
-        ~window() noexcept override = default;
+        ~window() noexcept final = default;
 
     public:
         auto on_start() -> void final;
