@@ -30,17 +30,17 @@ namespace dude {
     public:
         json_saver(json_saver const &) = delete;
         json_saver(json_saver &&) = delete;
-        auto operator=(json_saver const &) -> void = delete;
+        auto operator=(json_saver const &) -> json_saver & = delete;
 
     public:
-        auto save(engine const &value) const -> std::string;
+        auto save(dude::engine const &value) const -> std::string;
 
     public:
-        auto save(scene const &value, writer_t &writer, buffer_t &buffer) const -> void;
-        auto save(manager const &value, writer_t &writer, buffer_t &buffer) const -> void;
-        auto save(entity const &value, writer_t &writer, buffer_t &buffer) const -> void;
-        auto save(behavior const &value, writer_t &writer, buffer_t &buffer) const -> void;
-        auto save(property const &value, writer_t &writer, buffer_t &buffer) const -> void;
+        auto save(dude::scene const &value, writer_t &writer, buffer_t &buffer) const -> void;
+        auto save(dude::manager const &value, writer_t &writer, buffer_t &buffer) const -> void;
+        auto save(dude::entity const &value, writer_t &writer, buffer_t &buffer) const -> void;
+        auto save(dude::behavior const &value, writer_t &writer, buffer_t &buffer) const -> void;
+        auto save(dude::property const &value, writer_t &writer, buffer_t &buffer) const -> void;
     };
 
 }

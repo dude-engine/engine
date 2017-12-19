@@ -23,7 +23,7 @@ namespace dude {
     public:
         manager(manager const &) = delete;
         manager(manager &&) = delete;
-        auto operator=(manager const &) -> void = delete;
+        auto operator=(manager const &) -> manager & = delete;
 
     public:
         auto get_engine() const -> dude::engine *;

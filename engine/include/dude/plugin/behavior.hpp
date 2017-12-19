@@ -22,7 +22,7 @@ namespace dude {
     public:
         behavior(behavior const &) = delete;
         behavior(behavior &&) = delete;
-        auto operator=(behavior const &) -> void = delete;
+        auto operator=(behavior const &) -> behavior & = delete;
 
     public:
         auto get_entity() const -> dude::entity *;

@@ -25,7 +25,7 @@ namespace dude {
     public:
         entity(entity const &) = delete;
         entity(entity &&) = delete;
-        auto operator=(entity const &) -> void = delete;
+        auto operator=(entity const &) -> entity & = delete;
 
     public:
         auto get_scene() const -> dude::scene *;
