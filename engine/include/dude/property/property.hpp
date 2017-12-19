@@ -26,25 +26,20 @@ namespace dude {
         };
 
         template<typename T>
-        class property_data : public impl::property_base, std::tuple<T> {
+        class property_data final : public impl::property_base, std::tuple<T> {
         public:
-            template<typename ...Args>
-            property_data(Args &&...args) : std::tuple<T>(std::forward<Args>(args)...) {
-                static_assert(std::is_same<T, int>::value ||
-                              std::is_same<T, float>::value ||
-                              std::is_same<T, double>::value ||
-                              std::is_same<T, std::string>::value,
-                              "properties can only be of type int, float, double or string");
-            };
-            ~property_data() noexcept = default;
+            template<typename ...Args> property_data(Args &&...args); // NOLINT
+
+        public:
+            ~property_data() noexcept final = default;
 
         public:
             auto get() -> T &;
             auto get() const -> T const &;
 
         public:
-            auto is(std::type_info const &type_info) const -> bool override final;
-            auto copy() const -> property_base * override final;
+            auto is(std::type_info const &type_info) const -> bool final;
+            auto copy() const -> property_base * final;
         };
 
     }
@@ -60,13 +55,16 @@ namespace dude {
         using base_t = dude::impl::property_base *;
 
     public:
-        template<typename T, typename U = decay_t<T>, typename = none_t<U>> property(T &&t);
+        template<typename T, typename U = decay_t<T>, typename = none_t<U>> property(T &&t); // NOLINT
 
     public:
         property() = default;
         property(property const &p);
         property(property &&p) noexcept;
         ~property() noexcept;
+
+    public:
+        template<typename T> auto operator=(T &&t) -> property &;
 
     public:
         auto operator=(property &p) -> property &; // NOLINT
@@ -82,7 +80,6 @@ namespace dude {
 
     public:
         template<typename T, typename U = decay_t<T>> auto set(T &&t) -> void;
-        template<typename T> auto operator=(T &&t) -> void;
 
     public:
         auto clear() -> void;
@@ -104,6 +101,16 @@ namespace dude {
 namespace dude {
 
     namespace impl {
+
+        template<typename T>
+        template<typename... Args>
+        property_data<T>::property_data(Args &&...args) : std::tuple<T>(std::forward<Args>(args)...) {
+            static_assert(std::is_same<T, int>::value ||
+                          std::is_same<T, float>::value ||
+                          std::is_same<T, double>::value ||
+                          std::is_same<T, std::string>::value,
+                          "properties can only be of type int, float, double or string");
+        }
 
         template<typename T>
         auto property_data<T>::get() -> T & {
@@ -132,7 +139,7 @@ namespace dude {
 namespace dude {
 
     template<typename T, typename U, typename>
-    property::property(T &&t) : _base{new dude::impl::property_data<U>{std::forward<T>(t)}} {
+    property::property(T &&t) : _base{new impl::property_data<U>{std::forward<T>(t)}} {
 
     }
 
@@ -163,8 +170,9 @@ namespace dude {
     }
 
     template<typename T>
-    auto property::operator=(T &&t) -> void {
+    auto property::operator=(T &&t) -> property & {
         set(std::forward<T>(t));
+        return *this;
     }
 
     template<typename T>

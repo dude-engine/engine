@@ -26,8 +26,8 @@ TEST(Property, Basic) {
     EXPECT_EQ(p3.get<int>(), 32);
     EXPECT_TRUE(p2.is<int>());
     EXPECT_EQ(p4.get<int>(), 32);
-    EXPECT_FALSE(p5.is<std::string>());
-    EXPECT_TRUE(p5.empty());
+    EXPECT_FALSE(p5.is<std::string>()); // NOLINT: p5 used after move
+    EXPECT_TRUE(p5.empty()); // NOLINT: p5 used after move
     EXPECT_TRUE(p6.is<std::string>());
     EXPECT_EQ(p6.get<std::string>(), "empty");
 
