@@ -14,7 +14,7 @@ namespace dude { class entity; }
 
 namespace dude {
 
-    class DUDE_API behavior : public plugin {
+    class DUDE_API behavior : public dude::plugin {
     public:
         behavior() = default;
         ~behavior() override = 0;

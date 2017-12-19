@@ -14,7 +14,7 @@ namespace dude { class engine; }
 
 namespace dude {
 
-    class DUDE_API manager : public plugin {
+    class DUDE_API manager : public dude::plugin {
 
     public:
         manager() = default;

@@ -26,7 +26,7 @@ namespace dude {
         };
 
         template<typename T>
-        class property_data : public property_base, std::tuple<T> {
+        class property_data : public dude::impl::property_base, std::tuple<T> {
         public:
             template<typename ...Args>
             property_data(Args &&...args) : std::tuple<T>(std::forward<Args>(args)...) {

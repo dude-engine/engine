@@ -8,7 +8,7 @@
 
 namespace dude {
 
-    class projectile final : public behavior {
+    class projectile final : public dude::behavior {
     public:
         projectile();
         ~projectile() override;
